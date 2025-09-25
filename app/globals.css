@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    @apply bg-gradient-to-b from-gray-900 via-gray-800 to-black min-h-screen text-gray-100 antialiased;
+}
+
+@layer base {
+    :root {
+        --background: 40 56% 97%;
+        --foreground: 220 13% 95%;
+        --card: 222 47% 13%;
+        --card-foreground: 220 13% 95%;
+        --popover: 222 47% 13%;
+        --popover-foreground: 220 13% 95%;
+        --primary: 220 100% 66%;
+        --primary-foreground: 220 13% 95%;
+        --secondary: 222 47% 18%;
+        --secondary-foreground: 220 13% 95%;
+        --muted: 222 47% 18%;
+        --muted-foreground: 220 13% 60%;
+        --accent: 265 89% 70%;
+        --accent-foreground: 220 13% 95%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 220 13% 95%;
+        --border: 222 47% 20%;
+        --input: 222 47% 20%;
+        --ring: 220 100% 66%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply min-h-screen text-gray-100 antialiased;
+        background: #FAF8F6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-gray-100 font-bold;
+    }
+    a {
+        @apply text-primary hover:text-accent transition-colors;
+    }
+}

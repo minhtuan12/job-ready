@@ -34,7 +34,7 @@ export default function PaymentPage() {
           <div className="bg-[#fff8f0] rounded-lg p-4 mb-4 shadow-inner">
             <div className="flex items-center gap-3 mb-2">
               <img src="/sun-icon.png" alt="icon" className="w-6 h-6" />
-              <strong>AI.Interview</strong> - <span>Gói ngày</span>
+              <strong>Job Ready</strong> - <span>Gói ngày</span>
             </div>
             <div className="flex items-center gap-2 mb-4">
               <input

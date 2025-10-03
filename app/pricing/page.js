@@ -44,72 +44,72 @@ export default function Home() {
   const [feedback, setFeedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
-const plans = [
-  {
-    name: "Gói ngày",
-    price: "35.000 VNĐ/ngày",
-    features: [
-      "Cá nhân hóa theo ngành nghề",
-      "Điều chỉnh theo mức độ kinh nghiệm",
-      "Gợi ý câu hỏi phỏng vấn dựa trên JD",
-      "Phân tích giọng nói, nội dung cơ bản",
-    ],
-    extraFeatures: [false, false, false, false, false, false, false, false],
-    highlight: false,
-  },
-  {
-    name: "Gói tuần",
-    price: "89.000 VNĐ/tuần",
-    features: [
-      "Cá nhân hóa theo ngành nghề",
-      "Điều chỉnh theo mức độ kinh nghiệm",
-      "Gợi ý câu hỏi phỏng vấn dựa trên JD",
-      "Phân tích giọng nói, nội dung cơ bản",
-      "Mở phòng tập lưu thời gian",
-      "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
-    ],
-    extraFeatures: [false, false, false, false, false, false, false, false],
-    highlight: false,
-  },
-  {
-    name: "Gói tháng",
-    price: "249.000 VNĐ/tháng",
-    features: [
-      "Cá nhân hóa theo ngành nghề",
-      "Điều chỉnh theo mức độ kinh nghiệm",
-      "Gợi ý câu hỏi phỏng vấn dựa trên JD",
-      "Phân tích giọng nói, nội dung cơ bản",
-      "Mở phòng tập lưu thời gian",
-      "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
-      "Phân tích đa chiều chuyên sâu, đề xuất cá nhân hóa",
-      "Thư viện câu hỏi mẫu",
-      "Lưu lịch sử phỏng vấn",
-    ],
-    extraFeatures: [true, true, true, false, false, false, false, false],
-    highlight: true,
-  },
-  {
-    name: "Gói V-VIP",
-    price: "Sắp ra mắt",
-    features: [
-      "Cá nhân hóa theo ngành nghề",
-      "Điều chỉnh theo mức độ kinh nghiệm",
-      "Gợi ý câu hỏi phỏng vấn dựa trên JD",
-      "Phân tích giọng nói, nội dung cơ bản",
-      "Mở phòng tập lưu thời gian",
-      "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
-      "Phân tích đa chiều chuyên sâu, đề xuất cá nhân hóa",
-      "Thư viện câu hỏi mẫu",
-      "Lưu lịch sử phỏng vấn",
-      "Có chuyên gia tư vấn 1 - 1 (Phỏng vấn trực tiếp)",
-      "Có chuyên gia (Sửa CV)",
-      "Chia sẻ cơ hội nghề nghiệp tương ứng với người dùng",
-    ],
-    extraFeatures: [true, true, true, true, true, true, true, true],
-    highlight: false,
-  },
-];
-  
+  const plans = [
+    {
+      name: "Gói ngày",
+      price: "35.000 VNĐ/ngày",
+      features: [
+        "Cá nhân hóa theo ngành nghề",
+        "Điều chỉnh theo mức độ kinh nghiệm",
+        "Gợi ý câu hỏi phỏng vấn dựa trên JD",
+        "Phân tích giọng nói, nội dung cơ bản",
+      ],
+      extraFeatures: [false, false, false, false, false, false, false, false],
+      highlight: false,
+    },
+    {
+      name: "Gói tuần",
+      price: "89.000 VNĐ/tuần",
+      features: [
+        "Cá nhân hóa theo ngành nghề",
+        "Điều chỉnh theo mức độ kinh nghiệm",
+        "Gợi ý câu hỏi phỏng vấn dựa trên JD",
+        "Phân tích giọng nói, nội dung cơ bản",
+        "Mở phòng tập lưu thời gian",
+        "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
+      ],
+      extraFeatures: [false, false, false, false, false, false, false, false],
+      highlight: false,
+    },
+    {
+      name: "Gói tháng",
+      price: "249.000 VNĐ/tháng",
+      features: [
+        "Cá nhân hóa theo ngành nghề",
+        "Điều chỉnh theo mức độ kinh nghiệm",
+        "Gợi ý câu hỏi phỏng vấn dựa trên JD",
+        "Phân tích giọng nói, nội dung cơ bản",
+        "Mở phòng tập lưu thời gian",
+        "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
+        "Phân tích đa chiều chuyên sâu, đề xuất cá nhân hóa",
+        "Thư viện câu hỏi mẫu",
+        "Lưu lịch sử phỏng vấn",
+      ],
+      extraFeatures: [true, true, true, false, false, false, false, false],
+      highlight: true,
+    },
+    {
+      name: "Gói V-VIP",
+      price: "Sắp ra mắt",
+      features: [
+        "Cá nhân hóa theo ngành nghề",
+        "Điều chỉnh theo mức độ kinh nghiệm",
+        "Gợi ý câu hỏi phỏng vấn dựa trên JD",
+        "Phân tích giọng nói, nội dung cơ bản",
+        "Mở phòng tập lưu thời gian",
+        "Phân tích đa chiều (giọng nói, ngôn ngữ cơ thể, nội dung chi tiết)",
+        "Phân tích đa chiều chuyên sâu, đề xuất cá nhân hóa",
+        "Thư viện câu hỏi mẫu",
+        "Lưu lịch sử phỏng vấn",
+        "Có chuyên gia tư vấn 1 - 1 (Phỏng vấn trực tiếp)",
+        "Có chuyên gia (Sửa CV)",
+        "Chia sẻ cơ hội nghề nghiệp tương ứng với người dùng",
+      ],
+      extraFeatures: [true, true, true, true, true, true, true, true],
+      highlight: false,
+    },
+  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FCF9F2] to-white">
@@ -120,14 +120,14 @@ const plans = [
           <div className="flex justify-between items-center w-full mb-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <Image src="/Logo.png" alt="AI.Interview Logo" width={40} height={40} quality={100} priority />
-              <span className="font-bold text-2xl text-[#22372B] hidden sm:inline">AI.Interview</span>
+              <Image src="/Logo.png" alt="Job Ready Logo" width={40} height={40} quality={100} priority />
+              <span className="font-bold text-2xl text-[#22372B] hidden sm:inline">Job Ready</span>
             </Link>
             {/* Menu */}
             <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
-              <Link href="#how-it-works" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Cách hoạt động</Link>
-              <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Bảng giá</Link>
-              <Link href="#affiliate" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Affiliate</Link>
+              <Link href="#how-it-works" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Cách hoạt động</Link>
+              <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Bảng giá</Link>
+              <Link href="#affiliate" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Affiliate</Link>
             </nav>
             {/* CTA Button */}
             <Link href="/dashboard">
@@ -152,11 +152,10 @@ const plans = [
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative rounded-3xl p-8 shadow-lg transition-all duration-300 hover:shadow-2xl ${
-                  plan.highlight 
-                    ? "bg-gradient-to-b from-white to-pink-50 border-2 border-pink-500 transform hover:-translate-y-2" 
+                className={`relative rounded-3xl p-8 shadow-lg transition-all duration-300 hover:shadow-2xl ${plan.highlight
+                    ? "bg-gradient-to-b from-white to-pink-50 border-2 border-pink-500 transform hover:-translate-y-2"
                     : "bg-white hover:-translate-y-1"
-                }`}
+                  }`}
               >
                 {plan.highlight && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -165,10 +164,10 @@ const plans = [
                     </span>
                   </div>
                 )}
-                  <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full">
                   <h3 className="text-2xl font-bold text-[#22372B] mb-3">{plan.name}</h3>
                   <p className="text-2xl font-bold text-pink-600 mb-6">{plan.price}</p>
-                  
+
                   <ul className="space-y-4 flex-grow">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-[#4B6358]">
@@ -180,13 +179,12 @@ const plans = [
 
                   <Link href="/checkout" className="block mt-8">
                     <button
-                      className={`w-full py-3 rounded-full font-semibold transition-all duration-200 ${
-                        plan.price === "Sắp ra mắt"
+                      className={`w-full py-3 rounded-full font-semibold transition-all duration-200 ${plan.price === "Sắp ra mắt"
                           ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                           : plan.highlight
-                          ? "bg-gradient-to-r from-[#F97C7C] to-[#D72660] text-white hover:shadow-lg"
-                          : "bg-pink-100 text-pink-600 hover:bg-pink-200"
-                      }`}
+                            ? "bg-gradient-to-r from-[#F97C7C] to-[#D72660] text-white hover:shadow-lg"
+                            : "bg-pink-100 text-pink-600 hover:bg-pink-200"
+                        }`}
                       disabled={plan.price === "Sắp ra mắt"}
                     >
                       {plan.price === "Sắp ra mắt" ? "Sắp ra mắt" : "Đăng ký ngay"}
@@ -203,7 +201,7 @@ const plans = [
               <h2 className="text-3xl font-bold text-[#22372B] mb-4">So Sánh Tính Năng Chi Tiết</h2>
               <p className="text-[#4B6358]">Xem chi tiết các tính năng có trong từng gói dịch vụ</p>
             </div>
-            
+
             <div className="overflow-x-auto rounded-2xl shadow-lg bg-white">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
@@ -246,7 +244,7 @@ const plans = [
 
           {/* Benefits Section */}
           <div className="mt-24 mb-16 text-center max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#22372B] mb-12">Tại sao nên chọn AI.Interview?</h2>
+            <h2 className="text-3xl font-bold text-[#22372B] mb-12">Tại sao nên chọn Job Ready?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center mx-auto mb-6">
@@ -282,8 +280,8 @@ const plans = [
           {/* Left: Logo and Description */}
           <div className="flex-1 min-w-[220px] flex flex-col gap-3 items-start justify-start">
             <div className="flex items-center gap-2 mb-2">
-              <Image src="/Logo.png" alt="AI.Interview Logo" width={88} height={88} quality={100} priority />
-              <span className="font-bold text-2xl text-[#22372B]">AI.Interview</span>
+              <Image src="/Logo.png" alt="Job Ready Logo" width={88} height={88} quality={100} priority />
+              <span className="font-bold text-2xl text-[#22372B]">Job Ready</span>
             </div>
             <p className="text-[#4B6358] text-base">
               AI Interview là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
@@ -302,7 +300,7 @@ const plans = [
             </div>
             {/* About Links */}
             <div className="min-w-[150px]">
-              <div className="font-bold text-[#22372B] mb-3">Về AI.Interview</div>
+              <div className="font-bold text-[#22372B] mb-3">Về Job Ready</div>
               <ul className="space-y-2">
                 <li><a href="#policy" className="text-[#4B6358] hover:underline">Chính sách</a></li>
                 <li><a href="#terms" className="text-[#4B6358] hover:underline">Điều khoản và dịch vụ</a></li>
@@ -313,7 +311,7 @@ const plans = [
         </div>
         <hr className="my-8 border-[#F0F0E0]" />
         <div className="text-center text-[#7A8576] text-sm">
-          Copyright © AI.Interview 2025. All Rights Reserved
+          Copyright © Job Ready 2025. All Rights Reserved
         </div>
       </footer>
     </div>

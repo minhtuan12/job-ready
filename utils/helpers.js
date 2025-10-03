@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
-import {db} from "@/utils/db";
-import {User} from "@/utils/schema";
-import {eq, or} from "drizzle-orm";
+import { db } from "@/utils/db";
+import { User } from "@/utils/schema";
+import { eq, or } from "drizzle-orm";
 
 export async function hashPassword(password) {
     const saltRounds = 10;
@@ -12,7 +12,7 @@ export async function verifyPassword(password, hashedPassword) {
     return await bcrypt.compare(password, hashedPassword);
 }
 
-export async function createAccount({fullName = null, username, password = null, email}) {
+export async function createAccount({ fullName = null, username, password = null, email }) {
     try {
         await db.insert(User).values({
             fullName,
@@ -25,7 +25,7 @@ export async function createAccount({fullName = null, username, password = null,
     }
 }
 
-export async function isUserExists({email, username}) {
+export async function isUserExists({ email, username }) {
     try {
         const [user] = await db
             .select()

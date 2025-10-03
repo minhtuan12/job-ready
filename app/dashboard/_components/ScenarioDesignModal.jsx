@@ -40,9 +40,7 @@ import { toast } from 'sonner';
 const industries = [
     { value: "It", label: "IT", icon: "💻" },
     { value: "Marketing", label: "Marketing", icon: "💰" },
-    { value: "Communication", label: "Communication", icon: "📢" },
-    { value: "Data Science", label: "Data Science", icon: "📈" },
-    { value: "Business Analysis", label: "Business Analysis", icon: "📊" },
+    { value: "Kế toán", label: "Kế toán", icon: "📊" },
 ];
 
 // Component modal thiết kế kịch bản phỏng vấn

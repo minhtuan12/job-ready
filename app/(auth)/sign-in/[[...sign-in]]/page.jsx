@@ -56,7 +56,7 @@ function CustomLoginForm() {
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
                 Chào mừng bạn đến với
                 <br />
-                AI.Interview
+                Job Ready
             </h2>
             <p className="text-base text-center text-gray-500 mb-6">
                 Đăng nhập để bắt đầu hành trình chinh phục phỏng vấn
@@ -101,6 +101,11 @@ function CustomLoginForm() {
                 Chưa có tài khoản?{" "}
                 <a href="/sign-up" className="font-bold text-gray-800">
                     Đăng ký ngay
+                </a>
+            </div>
+            <div className="text-center text-gray-500 mb-2">
+                <a href="/forgot-password" className="font-semibold text-gray-600 underline">
+                    Quên mật khẩu?
                 </a>
             </div>
             <div className="flex items-center w-full my-4">

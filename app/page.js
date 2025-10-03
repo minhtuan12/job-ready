@@ -160,14 +160,14 @@ export default function Home() {
                     <div className="flex justify-between items-center w-full md:-mt-10" style={{ minHeight: '80px' }}>
                         {/* Logo và tên ứng dụng */}
                         <div className="flex items-center gap-3">
-                            <Image src="/Logo.png" alt="AI.Interview Logo" width={40} height={40} quality={100} priority />
-                            <span className="font-bold text-2xl text-[#22372B]" style={{ fontFamily: 'Inter, sans-serif' }}>AI.Interview</span>
+                            <Image src="/Logo.png" alt="Job Ready Logo" width={40} height={40} quality={100} priority />
+                            <span className="font-bold text-2xl text-[#22372B]" style={{ fontFamily: 'Inter, sans-serif' }}>Job Ready</span>
                         </div>
                         {/* Menu điều hướng chính */}
                         <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
-                            <Link href="/how-it-works" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Cách hoạt động</Link>
-                            <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Bảng giá</Link>
-                            <Link href="/affiliate" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-normal">Affiliate</Link>
+                            <Link href="/how-it-works" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Cách hoạt động</Link>
+                            <Link href="/pricing" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Bảng giá</Link>
+                            <Link href="/affiliate" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Affiliate</Link>
                         </nav>
                         {/* Nút CTA (Call-to-Action) chính */}
                         <Link href="/dashboard">
@@ -278,7 +278,7 @@ export default function Home() {
                         className="hidden md:block absolute left-64 top-48 z-10 w-[110px] h-auto"
                     />
                     <div className="max-lg:!py-10 w-full max-w-3xl flex flex-col items-center justify-center mx-auto px-4">
-                        <h2 className="text-5xl font-bold text-[#22372B] mb-2 mt-0 text-center">Trải nghiệm phỏng vấn miễn phí</h2>
+                        <h2 className="text-4xl font-bold text-[#22372B] mb-2 mt-0 text-center">Trải nghiệm phỏng vấn miễn phí</h2>
                         <p className="text-[#7A8576] text-lg mt-3 mb-12 text-center">Thử sức với những câu hỏi thực tế và nhận phản hồi tức thì từ AI</p>
                         <div className="bg-white rounded-2xl px-8 py-8 w-full relative z-10 flex flex-col justify-center">
                             <div className="flex justify-between items-center mb-4">
@@ -354,7 +354,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Why Choose AI.Interview Section - Vietnamese Redesign */}
+            {/* Why Choose Job Ready Section - Vietnamese Redesign */}
             <div className="max-lg:!h-auto max-lg:!py-12 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[660px] h-[660px] flex items-center justify-center overflow-visible">
                 {/* Decorative shapes inside section */}
                 <div className="pointer-events-none absolute z-0 w-full h-full left-0 top-0">
@@ -489,8 +489,8 @@ export default function Home() {
                     {/* Left: Logo and Description */}
                     <div className="flex-1 min-w-[220px] flex flex-col gap-3 items-start justify-start">
                         <div className="flex items-center gap-2 mb-2">
-                            <Image src="/Logo.png" alt="AI.Interview Logo" width={88} height={88} quality={100} priority />
-                            <span className="font-bold text-2xl text-[#22372B]">AI.Interview</span>
+                            <Image src="/Logo.png" alt="Job Ready Logo" width={88} height={88} quality={100} priority />
+                            <span className="font-bold text-2xl text-[#22372B]">Job Ready</span>
                         </div>
                         <p className="text-[#4B6358] text-base">
                             AI Interview là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
@@ -509,7 +509,7 @@ export default function Home() {
                         </div>
                         {/* About Links */}
                         <div className="min-w-[150px]">
-                            <div className="font-bold text-[#22372B] mb-3">Về AI.Interview</div>
+                            <div className="font-bold text-[#22372B] mb-3">Về Job Ready</div>
                             <ul className="space-y-2">
                                 <li><a href="#policy" className="text-[#4B6358] hover:underline">Chính sách</a></li>
                                 <li><a href="#terms" className="text-[#4B6358] hover:underline">Điều khoản và dịch vụ</a></li>
@@ -520,7 +520,7 @@ export default function Home() {
                 </div>
                 <hr className="my-8 border-[#F0F0E0]" />
                 <div className="text-center text-[#7A8576] text-sm">
-                    Copyright © AI.Interview 2025. All Rights Reserved
+                    Copyright © Job Ready 2025. All Rights Reserved
                 </div>
             </footer>
         </div>

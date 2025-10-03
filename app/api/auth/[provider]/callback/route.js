@@ -73,14 +73,14 @@ export async function GET(req, { params }) {
         email: user.email,
     })
         .setProtectedHeader({ alg: "HS256" })
-        .setExpirationTime("1h")
+        .setExpirationTime("1y")
         .sign(new TextEncoder().encode(process.env.JWT_SECRET));
 
     res.cookies.set("token", token, {
         httpOnly: true,
         secure: true,
         path: "/",
-        maxAge: 3600,
+        maxAge: 60 * 60 * 24 * 365,
     });
 
     return res;

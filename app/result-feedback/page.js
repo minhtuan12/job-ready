@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense, useMemo } from "react";
+import React, { useState, useEffect, Suspense, useMemo, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,8 @@ import {
     TrendingUp,
     Lightbulb,
     BarChart3,
+    Calendar,
+    X,
 } from "lucide-react";
 import { format } from "date-fns";
 import { generateSessionPDF } from "@/utils/pdfGenerator";
@@ -40,6 +42,7 @@ import {
     DialogDescription,
 } from "@/components/ui/dialog";
 import Image from "next/image";
+import { softSkills } from "@/utils/constants";
 
 // Hàm lấy và hiển thị kết quả phản hồi phỏng vấn
 function ResultFeedbackContent() {
@@ -67,6 +70,7 @@ function ResultFeedbackContent() {
     const [improvementDialogOpen, setImprovementDialogOpen] = useState(false);
     const [improvementDialogContent, setImprovementDialogContent] = useState("");
     const [improvementDialogTitle, setImprovementDialogTitle] = useState("");
+    const [coursesProposal, setCoursesProposal] = useState([]);
 
     // Compute weaknessCounts and sortedWeaknesses with useMemo
     const { weaknessCounts, sortedWeaknesses } = useMemo(() => {
@@ -88,6 +92,24 @@ function ResultFeedbackContent() {
         return { weaknessCounts, sortedWeaknesses };
     }, [sessionData]);
 
+    const carouselRef = useRef(null);
+
+    const scrollByItem = (direction) => {
+        const container = carouselRef.current;
+        if (!container) return;
+
+        const firstItem = container.querySelector(".carousel-item");
+        if (!firstItem) return;
+
+        const itemWidth = firstItem.offsetWidth + 16;
+        const scrollAmount = direction === "right" ? itemWidth : -itemWidth;
+
+        container.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth",
+        });
+    };
+
     // Actionable suggestions mapping
     const suggestionMap = {
         "Chưa trả lời đúng trọng tâm": "Hãy đọc kỹ câu hỏi và trả lời trực tiếp vào trọng tâm.",
@@ -100,6 +122,24 @@ function ResultFeedbackContent() {
 
     // Fetch dynamic suggestions for weaknesses not in the static map
     useEffect(() => {
+        if (sortedWeaknesses.length > 0) {
+            fetch("/api/interview-feedback/generate-courses", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ weaknesses: sortedWeaknesses.map(item => item[0]) }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.suggestion) {
+                        setCoursesProposal(JSON.parse(data.suggestion).map(item => item.name));
+                    } else {
+                        setCoursesProposal(softSkills.map(item => item.name));
+                    }
+                })
+                .catch(() => {
+                    setCoursesProposal(softSkills.map(item => item.name));
+                });
+        }
         sortedWeaknesses.forEach(([weakness]) => {
             if (!suggestionMap[weakness] && !dynamicSuggestions[weakness]) {
                 fetch("/api/interview-feedback/generate-suggestion", {
@@ -120,6 +160,7 @@ function ResultFeedbackContent() {
                     });
             }
         });
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [JSON.stringify(sortedWeaknesses)]);
 
@@ -199,9 +240,9 @@ function ResultFeedbackContent() {
     const avgScore =
         numAnswers > 0
             ? sessionData.conversation
-                  .filter((msg) => msg.type === "user" && msg.analysis?.overallScore)
-                  .reduce((acc, msg) => acc + msg.analysis.overallScore, 0) /
-              numAnswers
+                .filter((msg) => msg.type === "user" && msg.analysis?.overallScore)
+                .reduce((acc, msg) => acc + msg.analysis.overallScore, 0) /
+            numAnswers
             : 0;
     const durationUsed = sessionData.duration; // in seconds
     const expectedDuration = 180; // 3 minutes default
@@ -316,8 +357,7 @@ function ResultFeedbackContent() {
                         onClick={() =>
                             openModal(
                                 "Thời gian",
-                                `${Math.floor(sessionData.duration / 60)}m ${
-                                    sessionData.duration % 60
+                                `${Math.floor(sessionData.duration / 60)}m ${sessionData.duration % 60
                                 }s`
                             )
                         }
@@ -396,28 +436,30 @@ function ResultFeedbackContent() {
                         "conversation",
                         "feedback",
                         "recommendations",
+                        "propose"
                     ].map((tab) => (
                         <Button
                             key={tab}
                             variant={activeTab === tab ? "default" : "outline"}
                             onClick={() => setActiveTab(tab)}
                             className={`capitalize transition-all duration-300 font-semibold rounded-none px-4 py-2 text-base shadow-none border-b-2 whitespace-nowrap
-                                    ${
-                                        activeTab === tab
-                                            ? "bg-transparent text-[#38423B] border-[#38423B] border-b-4"
-                                            : "bg-transparent text-[#6B7A6C] border-transparent hover:text-[#38423B]"
-                                    }
+                                    ${activeTab === tab
+                                    ? "bg-transparent text-[#38423B] border-[#38423B] border-b-4"
+                                    : "bg-transparent text-[#6B7A6C] border-transparent hover:text-[#38423B]"
+                                }
                                 `}
                         >
                             {tab === "overview"
                                 ? "Tổng quan"
                                 : tab === "conversation"
-                                ? "Hội thoại"
-                                : tab === "feedback"
-                                ? "Đánh giá"
-                                : tab === "recommendations"
-                                ? "Lời khuyên"
-                                : tab}
+                                    ? "Hội thoại"
+                                    : tab === "feedback"
+                                        ? "Đánh giá"
+                                        : tab === "recommendations"
+                                            ? "Lời khuyên"
+                                            : tab === "propose"
+                                                ? "Đề xuất khóa học"
+                                                : tab}
                         </Button>
                     ))}
                 </div>
@@ -452,7 +494,7 @@ function ResultFeedbackContent() {
                                             openModal(
                                                 "Điểm mạnh",
                                                 strengths.join("\n") ||
-                                                    "Chưa có dữ liệu"
+                                                "Chưa có dữ liệu"
                                             )
                                         }
                                     >
@@ -534,7 +576,7 @@ function ResultFeedbackContent() {
                                             openModal(
                                                 "Có thể cải thiện",
                                                 weaknesses.join("\n") ||
-                                                    "Chưa có dữ liệu"
+                                                "Chưa có dữ liệu"
                                             )
                                         }
                                     >
@@ -615,7 +657,7 @@ function ResultFeedbackContent() {
                                         openModal(
                                             "Phân tích chi tiết",
                                             analysis.join("\n") ||
-                                                "Chưa có dữ liệu"
+                                            "Chưa có dữ liệu"
                                         )
                                     }
                                 >
@@ -695,13 +737,12 @@ function ResultFeedbackContent() {
                                                             Đánh giá:
                                                         </span>
                                                         <span
-                                                            className={`${
-                                                                parseInt(
-                                                                    score
-                                                                ) < 50
-                                                                    ? "text-[#E97A58]"
-                                                                    : "text-[#FFD166]"
-                                                            } text-sm`}
+                                                            className={`${parseInt(
+                                                                score
+                                                            ) < 50
+                                                                ? "text-[#E97A58]"
+                                                                : "text-[#FFD166]"
+                                                                } text-sm`}
                                                         >
                                                             {score}
                                                         </span>
@@ -847,12 +888,11 @@ function ResultFeedbackContent() {
                                                                     fill="none"
                                                                     stroke="#7ED957"
                                                                     strokeWidth="3.5"
-                                                                    strokeDasharray={`${
-                                                                        msg
-                                                                            .analysis
-                                                                            .overallScore *
+                                                                    strokeDasharray={`${msg
+                                                                        .analysis
+                                                                        .overallScore *
                                                                         0.88
-                                                                    }, 88`}
+                                                                        }, 88`}
                                                                     strokeLinecap="round"
                                                                 />
                                                             </svg>
@@ -877,9 +917,9 @@ function ResultFeedbackContent() {
                                                             <ul className="space-y-2">
                                                                 {msg.analysis
                                                                     .strengths &&
-                                                                msg.analysis
-                                                                    .strengths
-                                                                    .length >
+                                                                    msg.analysis
+                                                                        .strengths
+                                                                        .length >
                                                                     0 ? (
                                                                     msg.analysis.strengths.map(
                                                                         (
@@ -914,9 +954,9 @@ function ResultFeedbackContent() {
                                                             <ul className="space-y-2">
                                                                 {msg.analysis
                                                                     .weaknesses &&
-                                                                msg.analysis
-                                                                    .weaknesses
-                                                                    .length >
+                                                                    msg.analysis
+                                                                        .weaknesses
+                                                                        .length >
                                                                     0 ? (
                                                                     msg.analysis.weaknesses.map(
                                                                         (
@@ -1060,6 +1100,46 @@ function ResultFeedbackContent() {
                         </Dialog>
                     </div>
                 )}
+                {activeTab === "propose" && (
+                    <div className="bg-[#E5EFD9] rounded-[16px] p-4 w-full flex flex-col gap-4">
+                        <div className="flex justify-between w-full items-center">
+                            <div className="flex items-center text-black font-bold w-[80%]">
+                                <img src={'/check.png'} className="mr-1" />
+                                Tập trung vào: {sortedWeaknesses[0][0]}
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <img src={'/left.png'} className="cursor-pointer" onClick={() => scrollByItem('left')} />
+                                <img src={'/left.png'} className="rotate-[180deg] cursor-pointer" onClick={() => scrollByItem('right')} />
+                            </div>
+                        </div>
+                        <div ref={carouselRef} className="w-auto overflow-x-auto flex gap-4 pb-3 scrollbar-hide snap-x snap-mandatory scroll-smooth">
+                            {softSkills.filter(i => coursesProposal.includes(i.name)).map((item, index) => (
+                                <div key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
+                                    <div className={'flex justify-between w-full'}>
+                                        <div className={'flex flex-col gap-2'}>
+                                            <div className={'flex items-center text-[#607362] gap-3'}>
+                                                <Calendar className={'w-4 h-4'} />
+                                                28/09/2025 20:30
+                                            </div>
+                                            <div className={'text-[#2F3C30] text-[18px] font-bold'}>{item.name}</div>
+                                            <div className={'flex items-center gap-2'}>
+                                                <div className={'flex items-center justify-center w-auto px-2 h-[30px] gap-2 bg-[#F5F7F6] rounded-full'}>
+                                                    <img src={'/target_fill.png'} alt={''} />
+                                                    <span className={'text-[#607362]'}>Online</span>
+                                                </div>
+                                                <div className={'flex items-center justify-center w-auto px-2 h-[30px] gap-2 bg-[#F5F7F6] rounded-full'}>
+                                                    <Clock className={'w-4 h-4 text-gray-600'} />
+                                                    <span className={'text-[#607362]'}>60 phút</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src={'/c1.png'} className="h-full rounded-lg w-[173px]" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Modal hiển thị nội dung đầy đủ */}
@@ -1141,8 +1221,104 @@ function ResultFeedbackContent() {
                     </div>
                 </div>
             </footer>
+            {
+                overallScore >= 70 ? <JobProposal score={overallScore} /> : <JobProposal score={overallScore} failed />
+            }
         </div>
     );
+}
+
+const JobProposal = ({ score, open = true, failed = false }) => {
+    const [openModal, setOpen] = useState(open);
+    return openModal ? <AnimatePresence>
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+            {/* Nền mờ và hiệu ứng blur */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+            {/* Modal chính, có hiệu ứng động */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.97, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.97, y: 20 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="relative w-full max-w-2xl px-2 sm:px-0 flex flex-col items-center z-10 max-h-[90vh]"
+            >
+                {/* Nút đóng modal */}
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => { setOpen(false) }}
+                    className="absolute top-11 -right-8 w-9 h-9 bg-white shadow-lg border border-gray-200 flex items-center justify-center rounded-r-full rounded-l-none z-40 hover:bg-gray-100 transition-all duration-150"
+                    style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.10)' }}
+                    aria-label="Đóng"
+                >
+                    <X className="w-12 h-12 text-[#2D221B]" />
+                </Button>
+                <div
+                    className="w-full max-w-2xl h-full rounded-b-[36px] px-1 pb-1 flex flex-col items-center relative z-10"
+                    style={{ boxShadow: '0 8px 32px 0 rgba(75,55,46,0.12)' }}>
+                    {/* Lớp trắng phía trước (nội dung chính) */}
+                    <div
+                        className="relative z-20 w-full max-w-2xl p-6 mx-auto rounded-[20px] bg-white flex flex-col overflow-hidden border border-transparent shadow-2xl"
+                        style={{
+                            maxHeight: 'calc(90vh - 120px)', // Trừ chiều cao header
+                            overflowY: 'auto',
+                            scrollbarWidth: 'thin',
+                            scrollbarColor: '#E5D6C6 #FFFFFF'
+                        }}
+                    >
+                        <div
+                            className="bg-white rounded-full flex items-center justify-center mx-auto"
+                            style={{
+                                width: 128,
+                                height: 128,
+                                zIndex: 40,
+                                pointerEvents: "auto",
+                            }}
+                        >
+                            <svg width="100" height="100" viewBox="0 0 140 140">
+                                <circle
+                                    cx="70"
+                                    cy="70"
+                                    r="62"
+                                    stroke="#E9E5DF"
+                                    strokeWidth="12"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M70 8 a 62 62 0 1 1 0 124 a 62 62 0 1 1 0 -124"
+                                    fill="none"
+                                    stroke="#E97B5A"
+                                    strokeWidth="12"
+                                    strokeDasharray={`${score * 3.9}, 390`}
+                                    strokeLinecap="round"
+                                    style={{ transition: "stroke-dasharray 0.6s" }}
+                                />
+                            </svg>
+                            <span
+                                className="absolute text-3xl font-bold text-[#38423B]"
+                            >
+                                {score}
+                            </span>
+                        </div>
+                        <div className="text-center">
+                            <div className="mt-6 text-2xl font-semibold text-[#2f3c30] leading-8 box-border px-10">
+                                {failed ? 'Tiếc quá! Chưa có công việc phù hợp với bạn lúc này' : 'Tuyệt vời! Bạn đã sẵn sàng ứng tuyển 🎉'}
+                            </div>
+                            <div className="box-border px-32 mt-4 text-sm text-[#607361] leading-[22px] mx-auto">
+                                {failed ? 'Hãy luyện tập thêm với AI để cải thiện điểm số và tăng cơ hội được gợi ý việc làm.' : 'Dựa trên điểm số của bạn, chúng tôi đề xuất một số việc làm phù hợp từ đối tác.'}
+                            </div>
+                        </div>
+                        {!failed ?
+                            <div className="mt-6">
+
+                            </div>
+                            : ''
+                        }
+                    </div>
+                </div>
+            </motion.div>
+        </div>
+    </AnimatePresence> : ''
 }
 
 // Component hiển thị tiến trình dạng vòng tròn

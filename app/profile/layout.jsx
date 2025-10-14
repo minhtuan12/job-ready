@@ -3,8 +3,8 @@ import Header from './_components/Header'
 
 // Add metadata configuration for dashboard
 export const metadata = {
-    title: 'AI-Interview | Dashboard',
-    description: 'AI-Interview dashboard',
+    title: 'Job Ready | Dashboard',
+    description: 'Job Ready dashboard',
 }
 
 function DashBoardLayout({ children }) {

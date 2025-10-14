@@ -53,7 +53,7 @@ export default function CV({ cvUrls = [] }) {
   }, [searchTerm]);
 
   return <div className="flex flex-col gap-6">
-    <input type="file" ref={fileInputRef} className="hidden" onChange={handleChange} />
+    <input type="file" ref={fileInputRef} accept=".pdf,.doc,.docx" className="hidden" onChange={handleChange} />
     {
       loading ? <Loader2 className="w-6 h-6 animate-spin" /> :
         (cvUrls.length > 0 ? <>

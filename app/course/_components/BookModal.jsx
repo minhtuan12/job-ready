@@ -223,7 +223,6 @@ const BookModal = (
                                                         selected={data.date}
                                                         captionLayout="dropdown"
                                                         onSelect={(date) => {
-                                                            console.log(date);
                                                             setData({ ...data, date })
                                                             setOpen(false)
                                                         }}

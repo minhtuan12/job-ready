@@ -1,14 +1,60 @@
 "use client";
 
-import React from "react";
-import { Calendar, ChevronLeft, Pencil, User } from "lucide-react";
+import React, { use, useState } from "react";
+import { Calendar, ChevronLeft, Loader2, Pencil, User, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { courses, filters } from "@/utils/constants";
+import { courses, filters, softSkills } from "@/utils/constants";
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Congrats from "@/components/congrats";
 
 export default function ({ params }) {
     const router = useRouter();
+    const { id } = use(params);
+    const course = softSkills.find(i => i.id === Number(id));
+    const [openModal, setOpenModal] = useState(false);
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        question: ''
+    })
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    function handleRegisterCourse() {
+        setLoading(true);
+        try {
+            fetch(`/api/course-register`, {
+                method: "POST",
+                body: JSON.stringify({
+                    ...data,
+                    courseId: Number(id) || 0
+                }),
+            })
+                .then(async (response) => {
+                    if (!response.ok) {
+                        toast.error('Đã xảy ra lỗi')
+                    } else {
+                        setSuccess(true);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Đã xảy ra lỗi:", error);
+                })
+                .finally(() => {
+                    setLoading(false);
+                });
+        } catch (err) {
+            setError(err.errors?.[0]?.message || "Đăng ký thất bại");
+            setLoading(false);
+        }
+    }
+
+    if (!course) return null;
     return (
-        <div className="w-full min-h-screen bg-[#FAF8F6]">
+        !success ? <div className="w-full min-h-screen bg-[#FAF8F6]">
             <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-4 py-12">
 
                 {/* Breadcrumb */}
@@ -22,7 +68,7 @@ export default function ({ params }) {
                             <span>Khoá học</span>
                             <span>/</span>
                             <span className="text-[#2f3c30] font-medium">
-                                Kỹ năng Giao tiếp Tự tin trong Phỏng vấn
+                                {course.name}
                             </span>
                         </div>
                     </div>
@@ -30,12 +76,8 @@ export default function ({ params }) {
                     {/* Title & Description */}
                     <div className="flex flex-col gap-4">
                         <h1 className="text-[26px] font-semibold text-[#2f3c30]">
-                            Kỹ năng Giao tiếp Tự tin trong Phỏng vấn
+                            {course.name}
                         </h1>
-                        <p className="text-[18px] text-[#2F3C30]">
-                            Rèn luyện kỹ năng giao tiếp, ngôn ngữ cơ thể và cách trả lời phỏng
-                            vấn chuyên nghiệp.
-                        </p>
                     </div>
 
                     {/* Main Image */}
@@ -49,74 +91,7 @@ export default function ({ params }) {
                 {/* Content Section */}
                 <section className="w-full max-w-full flex flex-col lg:flex-row gap-10 mt-10">
                     {/* Left Content */}
-                    <article className="flex-1 flex flex-col gap-10">
-                        {/* Description */}
-                        <section className="flex flex-col gap-5">
-                            <h2 className="text-2xl font-semibold text-[#2f3c30]">
-                                1. Mô tả khóa học
-                            </h2>
-                            <p className="text-lg text-[#2f3c30]">
-                                Workshop này được thiết kế dành riêng cho sinh viên và người mới
-                                đi làm, giúp bạn:
-                            </p>
-                            <ul className="list-disc pl-5 text-lg text-[#2f3c30] space-y-2">
-                                <li>Tự tin khi đối diện nhà tuyển dụng.</li>
-                                <li>Biết cách trình bày ý tưởng mạch lạc, rõ ràng.</li>
-                                <li>Sử dụng ngôn ngữ cơ thể để gây ấn tượng tốt.</li>
-                                <li>Xử lý tình huống bất ngờ trong phỏng vấn.</li>
-                            </ul>
-                        </section>
-
-                        {/* Learning Outcomes */}
-                        <section className="flex flex-col gap-5">
-                            <h2 className="text-2xl font-semibold text-[#2f3c30]">
-                                2. Bạn sẽ học được gì
-                            </h2>
-                            <div className="text-lg text-[#2f3c30] space-y-2 flex flex-col">
-                                <span>✅ Làm chủ giọng nói, tốc độ và cách biểu đạt.</span>
-                                <span>✅ Hiểu rõ kỹ thuật đặt – trả lời câu hỏi.</span>
-                                <span>✅ Xây dựng sự tự tin và chuyên nghiệp.</span>
-                                <span>✅ Nhận feedback trực tiếp từ trainer có kinh nghiệm.</span>
-                            </div>
-                        </section>
-
-                        {/* Target Audience */}
-                        <section className="flex flex-col gap-5">
-                            <h2 className="text-2xl font-semibold text-[#2f3c30]">
-                                3. Ai nên tham gia
-                            </h2>
-                            <ul className="list-disc pl-5 text-lg text-[#2f3c30] space-y-2">
-                                <li>Sinh viên sắp tốt nghiệp, chuẩn bị đi phỏng vấn.</li>
-                                <li>Người mới đi làm muốn cải thiện sự tự tin.</li>
-                                <li>Ứng viên chuyển việc, cần nâng cấp kỹ năng giao tiếp.</li>
-                            </ul>
-                        </section>
-
-                        {/* Instructor Info */}
-                        <section className="flex flex-col gap-5">
-                            <h2 className="text-2xl font-semibold text-[#2f3c30]">
-                                4. Thông tin giảng viên
-                            </h2>
-                            <img
-                                src="/Group 37.png"
-                                alt="Instructor"
-                                className="max-w-[642px] h-[347px] object-cover rounded-2xl"
-                            />
-                            <h3 className="text-xl font-semibold text-[#2f3c30]">
-                                Chị Nguyễn Minh Anh
-                            </h3>
-                            <ul className="list-disc pl-5 text-lg text-[#2f3c30] space-y-2">
-                                <li>HR Manager tại FPT Software.</li>
-                                <li>
-                                    <strong>10+</strong> năm kinh nghiệm tuyển dụng & đào tạo.
-                                </li>
-                                <li>
-                                    Đã phỏng vấn hơn <strong>3.000</strong> ứng viên từ fresher đến
-                                    quản lý.
-                                </li>
-                            </ul>
-                        </section>
-                    </article>
+                    <div className="text-black prose" dangerouslySetInnerHTML={{ __html: course.detail }} />
 
                     {/* Sidebar */}
                     <aside className="w-full max-w-[342px] bg-white border border-[#efeae7] rounded-3xl p-5 flex flex-col gap-5 h-fit">
@@ -142,7 +117,7 @@ export default function ({ params }) {
                                     Giảng viên
                                 </div>
                                 <p className="text-base font-bold text-[#2f3c30] mt-2">
-                                    Nguyễn Minh Anh – HR Manager tại FPT Software
+                                    {course.teacher}
                                 </p>
                             </div>
                             <div>
@@ -155,7 +130,7 @@ export default function ({ params }) {
                                 </p>
                             </div>
                         </div>
-                        <button className="w-full h-11 bg-[#B5ED76] rounded-full text-[#2f3c30] font-semibold mt-3">
+                        <button onClick={() => setOpenModal(true)} className="w-full h-11 bg-[#B5ED76] rounded-full text-[#2f3c30] font-semibold mt-3">
                             Đăng ký
                         </button>
                     </aside>
@@ -186,6 +161,139 @@ export default function ({ params }) {
                     </div>
                 </section>
             </div>
+
+            {openModal && <AnimatePresence>
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    {/* Nền mờ và hiệu ứng blur */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+                    {/* Modal chính, có hiệu ứng động */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.97, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.97, y: 20 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        className="relative w-full max-w-xl px-2 sm:px-0 flex flex-col items-center z-10 max-h-[90vh]"
+                    >
+                        {/* Nút đóng modal */}
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setOpenModal(false)}
+                            className="absolute top-11 -right-8 w-9 h-9 bg-white shadow-lg border border-gray-200 flex items-center justify-center rounded-r-full rounded-l-none z-40 hover:bg-gray-100 transition-all duration-150"
+                            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.10)' }}
+                            aria-label="Đóng"
+                        >
+                            <X className="w-12 h-12 text-[#2D221B]" />
+                        </Button>
+                        <div
+                            className="w-full max-w-xl h-full rounded-b-[36px] px-1 pb-1 flex flex-col items-center relative z-10"
+                            style={{ boxShadow: '0 8px 32px 0 rgba(75,55,46,0.12)' }}>
+                            {/* Lớp trắng phía trước (nội dung chính) */}
+                            <div
+                                className="relative z-20 w-full max-w-xl p-6 mx-auto rounded-[20px] bg-white flex flex-col overflow-hidden border border-transparent shadow-2xl"
+                                style={{
+                                    maxHeight: 'calc(90vh - 120px)', // Trừ chiều cao header
+                                    overflowY: 'auto',
+                                    scrollbarWidth: 'thin',
+                                    scrollbarColor: '#E5D6C6 #FFFFFF'
+                                }}
+                            >
+                                {/* Nội dung chính của modal */}
+                                <div className={'text-[#2F3C30] font-semibold text-[24px] mb-6'}>Đăng ký tham gia khóa học
+                                </div>
+                                <div className="grid grid-cols-3 gap-5 w-full h-auto border border-[#F0EAE7] rounded-[24px] box-border p-[19.5px_16px]">
+                                    <div className="col-span-2 flex flex-col gap-[10px]">
+                                        <div className="text-[#2F3C30] text-[18px] font-bold">{course.name}</div>
+                                        <div className="text-[#607362] text-[14px]">{course.description}</div>
+                                    </div>
+                                    <img src={course.thumbnail} className="rounded-[10px] col-span-1" />
+                                </div>
+                                <div className={'space-y-5 mt-6'}>
+                                    <div className="mb-4">
+                                        <label className="block text-xs text-[#6B5B4A] mb-1.5 font-medium">Họ và tên<span
+                                            className="text-red-500"> *</span></label>
+                                        <Input
+                                            value={data.name}
+                                            onChange={(e) => setData({ ...data, name: e.target.value })}
+                                            placeholder="Nhập họ và tên"
+                                            className="border border-[#E5E5E5] bg-white text-[#2D221B] focus:border-[#B6F09C] focus:ring-[#B6F09C]/20 rounded-xl h-10"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="block text-xs text-[#6B5B4A] mb-1.5 font-medium">Email nhận
+                                            link phỏng vấn<span className="text-red-500"> *</span></label>
+                                        <Input
+                                            value={data.email}
+                                            onChange={(e) => setData({ ...data, email: e.target.value })}
+                                            placeholder="Nhập email"
+                                            className="border border-[#E5E5E5] bg-white text-[#2D221B] focus:border-[#B6F09C] focus:ring-[#B6F09C]/20 rounded-xl h-10"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="block text-xs text-[#6B5B4A] mb-1.5 font-medium">Câu hỏi cho giảng viên</label>
+                                        <Textarea
+                                            placeholder="Nhập câu hỏi"
+                                            value={data.question}
+                                            onChange={(e) => setData({ ...data, question: e.target.value })}
+                                            className="min-h-[100px] bg-[#f3faf5] border border-[#E5E7EB] text-[#22372B] placeholder:text-[#B0B7A1] rounded-xl"
+                                        />
+                                    </div>
+
+                                    <Button
+                                        disabled={loading || !data.name || !data.email}
+                                        onClick={handleRegisterCourse}
+                                        className="cursor-pointer flex-1 h-12 rounded-full bg-[#B5ED76] hover:bg-[#16A34A] text-black text-base w-full shadow-none"
+                                    >{loading && <Loader2 className="animate-spin w-5 h-5" />} Đăng ký</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </AnimatePresence >
+            }
+        </div > : <div className="w-full min-h-screen bg-[#FAF8F6]">
+            <Congrats setOpen={() => {
+                setSuccess(false)
+            }}>
+                <div className="text-center mt-7">
+                    <h2 className="text-2xl font-semibold text-[#2f3c30]">
+                        Đăng ký tham gia thành công
+                    </h2>
+                    <p className="text-base text-[#607361] leading-6 mt-3">
+                        Link tham gia buổi Workshop đã được gửi đến <b>{data.email}</b>. Chúc bạn sẽ có một buổi workshop hiệu quả và học được nhiều kiến thức mới.
+                    </p>
+                </div>
+
+                <div className="flex gap-5 w-full my-6">
+                    <div className="flex flex-col gap-[10px]">
+                        <p className="text-[#2F3C30] text-[18px] font-bold">{course.name}</p>
+                        <p className="text-[#607362] text-[14px]">{course.description}</p>
+                    </div>
+                    <img src={course.thumbnail} className="w-[134px] h-[75px] rounded-[12px]" />
+                </div>
+
+                <div className="w-full flex flex-col gap-">
+                    <div className="flex justify-between text-base text-[#607361]">
+                        <span>Ngày bắt đầu</span>
+                        <span className="text-[#2f3c30] font-bold">
+                            28/09/2025 20:30
+                        </span>
+                    </div>
+                    <div className="h-px w-full bg-[#EBEBEB] my-4" />
+                    <div className="flex justify-between text-base text-[#607361]">
+                        <span>Trainer</span>
+                        <span className="text-[#2f3c30] font-bold">{course.teacher}</span>
+                    </div>
+                    <div className="h-px w-full bg-[#EBEBEB] my-4" />
+                    <div className="flex justify-between text-base text-[#607361]">
+                        <span>Hình thức</span>
+                        <span className="text-[#2f3c30] font-bold">Online qua Zoom</span>
+                    </div>
+                    <div className="h-px w-full bg-[#EBEBEB] my-4" />
+                </div>
+            </Congrats>
         </div>
     );
 };

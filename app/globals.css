@@ -36,14 +36,33 @@ body {
     * {
         @apply border-border;
     }
+
     body {
         @apply min-h-screen text-gray-100 antialiased;
         background: #FAF8F6;
     }
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @apply text-gray-100 font-bold;
     }
+
     a {
         @apply text-primary hover:text-accent transition-colors;
     }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE và Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }

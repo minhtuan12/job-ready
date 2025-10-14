@@ -10,13 +10,13 @@ export async function POST(request) {
     // Kiểm tra xác thực người dùng
     const user = await getUserFromCookie();
 
-    if (!user || !user.emailAddresses || user.emailAddresses.length === 0) {
+    if (!user) {
       return NextResponse.json({ error: "User email not found or user not authenticated" }, { status: 401 });
     }
     const userEmail = user.emailAddresses[0].emailAddress;
 
     const data = await request.json();
-    
+
     // Lưu thông tin phỏng vấn mới vào cơ sở dữ liệu
     const result = await db.insert(MockInterview).values({
       title: data.title,

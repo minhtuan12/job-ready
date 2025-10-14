@@ -6,59 +6,13 @@ import { Button } from "@/components/ui/button";
 import DetailModal from "@/app/hr/_components/DetailModal";
 import BookModal from "./_components/BookModal";
 import Congrats from "@/components/congrats";
+import { hrList } from "@/utils/constants";
+import { useUser } from "../context/UserContext";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 function Hr() {
     const [selectedCompany, setSelectedCompany] = React.useState('Tất cả công ty');
-    const hrList = [
-        {
-            name: "Nguyễn Văn Phúc",
-            title: "Hr",
-            company: "MB Bank",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        },
-        {
-            name: "Lê Thị Lan",
-            title: "Hr",
-            company: "Shopee",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        },
-        {
-            name: "Trần Thị Hương",
-            title: "Lead Hr",
-            company: "Viettel",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        },
-        {
-            name: "Nguyễn Thị Mai",
-            title: "Hr",
-            company: "FPT Software",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        },
-        {
-            name: "Ngô Thị Bích",
-            title: "Hr",
-            company: "CMC Global",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        },
-        {
-            name: "Phạm Văn An",
-            title: "Hr",
-            company: "Sotatek",
-            avatar: "/avatar.jpg",
-            logo: "/hr-logo.png",
-            email: 'abc@gmail.com'
-        }
-    ]
     const list = useMemo(() => {
         if (selectedCompany === 'Tất cả công ty') {
             return hrList;
@@ -67,9 +21,10 @@ function Hr() {
     }, [selectedCompany, hrList]);
     const [hr, setHr] = useState(null);
     const [hrBook, setHrBook] = useState(null);
+    const user = useUser();
 
     return (
-        <div className="w-full min-h-screen bg-[#FAF8F6]">
+        user.packages === 'vip' ? <div className="w-full min-h-screen bg-[#FAF8F6]">
             <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-4 py-12">
                 <div className={'flex justify-between items-center w-full'}>
                     <div className={'font-semibold text-[32px] text-[#2F3C30]'}>Danh sách HR</div>
@@ -110,17 +65,10 @@ function Hr() {
                                             height={56}
                                             className="h-14 w-14 rounded-full object-cover"
                                         />
-                                        <Image
-                                            src={logo}
-                                            alt={`logo`}
-                                            width={24}
-                                            height={24}
-                                            className="h-6 w-6 rounded-full object-cover absolute bottom-0 -right-1 border border-white"
-                                        />
                                     </div>
                                     <div className={'space-y-2'}>
                                         <p className="font-bold text-[18px] text-[#2F3C30]">{name}</p>
-                                        <p className="text-[14px] text-[#607362]">Hr tại {company}</p>
+                                        <p className="text-[14px] text-[#607362]">{company}</p>
                                     </div>
                                 </div>
                                 <div className={'w-full border border-[#F4F4F4]'}></div>
@@ -144,6 +92,7 @@ function Hr() {
             </div>
             {hr ?
                 <DetailModal
+                    detail={hr.detail}
                     hrEmail={hr.email}
                     name={hr.name} logo={hr.logo} company={hr.company} avatar={hr.avatar} onClose={() => setHr(null)}
                     show={hr}
@@ -153,6 +102,48 @@ function Hr() {
                 hrBook ? <BookModal email={hrBook.email} name={hrBook.name} logo={hrBook.logo} avatar={hrBook.avatar} show={hrBook} onClose={() => setHrBook(null)}
                     company={hrBook.company} /> : ''
             }
+        </div> : <div className="w-full min-h-screen bg-[#FAF8F6]">
+            <AnimatePresence>
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    {/* Nền mờ và hiệu ứng blur */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+                    {/* Modal chính, có hiệu ứng động */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.97, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.97, y: 20 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        className="relative w-full max-w-xl px-2 sm:px-0 flex flex-col items-center z-10 max-h-[90vh]"
+                    >
+                        {/* Viền nâu phía dưới, trái, phải */}
+                        <div
+                            className="w-full max-w-xl h-auto rounded-b-[20px] flex flex-col items-center relative z-10"
+                            style={{ boxShadow: '0 8px 32px 0 rgba(75,55,46,0.12)' }}>
+                            {/* Lớp trắng phía trước (nội dung chính) */}
+                            <div
+                                className="bg-[#F7F5EF] relative z-20 w-full mx-auto rounded-[20px] bg-white flex flex-col overflow-hidden border border-transparent shadow-2xl"
+                            >
+                                {/* Nội dung chính của modal */}
+                                <div className="py-6 px-10 h-[709px] w-auto bg-[#F7F5EF]">
+                                    <img src="/top.png" className="w-full" />
+                                    <div className="mt-6">
+                                        <div className="text-[28px] text-black font-semibold w-full px-10 text-center">
+                                            Mở khóa cơ hội phỏng vấn với HR từ các doanh nghiệp
+                                        </div>
+                                        <div className="text-[#607362] text-base leading-6 text-center mt-4">
+                                            Không chỉ luyện tập, bạn sẽ được HR từ doanh nghiệp lớn phỏng vấn thật và chỉnh sửa điểm yếu ngay lập tức
+                                        </div>
+                                    </div>
+                                    <img src="bottom.png" className="mt-[40px] w-full" />
+                                    <Link href="/pricing">
+                                        <Button className="-mb-6 hover:bg-[#E73F5C] bg-[#DE3C58] text-white mt-10 rounded-full w-full h-12">Nâng cấp ngay</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </AnimatePresence>
         </div>
     );
 }

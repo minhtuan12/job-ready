@@ -1,7 +1,7 @@
 import { pgTable, serial, text, varchar, integer, references, timestamp } from "drizzle-orm/pg-core";
 
 export const MockInterview = pgTable('mockInterview', {
-    id: serial('id').primaryKey(),
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
     title: varchar('title', { length: 300000 }).notNull(),
     description: text('description', { length: 300000 }),
     difficulty: varchar('difficulty', { length: 300000 }).notNull(),
@@ -18,7 +18,7 @@ export const MockInterview = pgTable('mockInterview', {
 })
 
 export const InterviewFeedback = pgTable('interviewFeedback', {
-    id: serial('id').primaryKey(),
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
     mockIdRef: varchar('mockId', { length: 300000 }).notNull(),
     userEmail: varchar('userEmail', { length: 300000 }).notNull(),
     createdAt: varchar('createdAt', { length: 300000 }).notNull(),
@@ -36,7 +36,7 @@ export const InterviewFeedback = pgTable('interviewFeedback', {
 })
 
 export const User = pgTable('users', {
-    id: serial('id').primaryKey(),
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
     fullName: varchar('fullName', { length: 300000 }).default(null),
     username: varchar('username', { length: 300000 }).notNull(),
     email: varchar('email', { length: 300000 }).notNull(),
@@ -46,10 +46,10 @@ export const User = pgTable('users', {
 })
 
 export const Booking = pgTable("bookings", {
-    id: serial("id").primaryKey(),
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
     candidateId: integer("candidateId").notNull(),
     hrEmail: varchar("hrEmail", { length: 255 }).notNull(),
-    interviewDate: timestamp("interviewDate", { withTimezone: true }).notNull(),
+    interviewDate: timestamp("interviewDate").notNull(),
     interviewTime: varchar("interviewTime").notNull(),
     cvUrl: text("cvUrl").notNull(),
     note: text("note"),
@@ -62,11 +62,29 @@ export const Booking = pgTable("bookings", {
 });
 
 export const Application = pgTable("applications", {
-    id: serial("id").primaryKey(),
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
     candidateId: integer("candidateId").notNull(),
     jobId: integer("jobId").notNull(),
     cv: varchar("cv").notNull(),
     candidateName: varchar("candidateName").notNull(),
     candidateEmail: varchar("candidateEmail").notNull(),
     letter: text("letter"),
+});
+
+export const Order = pgTable("orders", {
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+    userId: integer("userId").notNull(),
+    packageId: integer("packageId").notNull(),
+    amount: integer('amount').default(null),
+    createdAt: timestamp("createdAt").defaultNow(),
+});
+
+export const CourseRegister = pgTable("courseRegisters", {
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+    candidateId: integer("candidateId").notNull(),
+    courseId: integer("courseId").notNull(),
+    name: varchar("name").notNull(),
+    email: varchar("email").notNull(),
+    question: text("question"),
+    createdAt: timestamp("createdAt").defaultNow(),
 });

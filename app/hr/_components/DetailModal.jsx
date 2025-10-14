@@ -8,6 +8,7 @@ import Image from "next/image";
 import BookModal from "@/app/hr/_components/BookModal";
 
 const DetailModal = ({
+    detail,
     hrEmail,
     name,
     avatar,
@@ -71,17 +72,10 @@ const DetailModal = ({
                                                     height={56}
                                                     className="h-14 w-14 rounded-full object-cover"
                                                 />
-                                                <Image
-                                                    src={logo}
-                                                    alt={`logo`}
-                                                    width={24}
-                                                    height={24}
-                                                    className="h-6 w-6 rounded-full object-cover absolute bottom-0 -right-1 border border-white"
-                                                />
                                             </div>
                                             <div className={'space-y-2'}>
                                                 <p className="font-bold text-[18px] text-[#2F3C30]">{name}</p>
-                                                <p className="text-[14px] text-[#607362]">Hr tại {company}</p>
+                                                <p className="text-[14px] text-[#607362]">{company}</p>
                                             </div>
                                         </div>
                                         <div className={'flex gap-4 h-[140px] max-sm:h-auto'}>
@@ -123,33 +117,9 @@ const DetailModal = ({
                                             </div>
                                         </div>
                                         <div className={'text-[16px] text-[#607362]'}>
-                                            Với hơn 6 năm kinh nghiệm trong lĩnh vực tuyển dụng và quản trị nhân sự tại
-                                            các
-                                            tập đoàn
-                                            đa quốc gia, tôi đã trực tiếp tham gia phỏng vấn và lựa chọn hàng trăm ứng
-                                            viên
-                                            ở nhiều
-                                            cấp độ khác nhau, từ thực tập sinh đến nhân sự chính thức. Trong quá trình
-                                            làm
-                                            việc, tôi
-                                            đặc biệt quan tâm đến các bạn sinh viên mới ra trường, bởi tôi hiểu rõ sự bỡ
-                                            ngỡ
-                                            và
-                                            thiếu tự tin mà các bạn thường gặp phải khi tham gia phỏng vấn lần đầu.
-                                            <br /><br />Chính vì vậy,
-                                            tôi luôn mong muốn mang lại những buổi luyện tập thực tế, nơi bạn có thể
-                                            trải
-                                            nghiệm một
-                                            quy trình phỏng vấn như thật và nhận được những góp ý chi tiết, thẳng thắn
-                                            nhưng
-                                            mang
-                                            tính xây dựng. Tôi tin rằng chỉ cần được chuẩn bị đúng cách và được chỉ dẫn
-                                            từ
-                                            người có
-                                            kinh nghiệm, mỗi ứng viên đều có thể phát huy tối đa tiềm năng của mình và
-                                            tự
-                                            tin hơn
-                                            trên hành trình sự nghiệp.
+                                            <ul>
+                                                {detail.map((i, index) => <li key={index}>• {i}</li>)}
+                                            </ul>
                                         </div>
                                         <Button
                                             onClick={() => setOpenBook(true)}

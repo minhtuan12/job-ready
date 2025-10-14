@@ -151,6 +151,7 @@ export default function Application({ selectedJob, onClose }) {
                                                     type="file"
                                                     className="hidden"
                                                     onChange={handleChange}
+                                                    accept=".pdf,.doc,.docx"
                                                 />
                                             </div>
                                             <div

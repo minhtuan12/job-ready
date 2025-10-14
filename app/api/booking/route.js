@@ -88,7 +88,7 @@ export async function POST(req) {
         .insert(Booking)
         .values({
           hrEmail,
-          interviewDate: date,
+          interviewDate: new Date(date),
           interviewTime: time,
           cvUrl: uploadResult.secure_url,
           note: note || '',

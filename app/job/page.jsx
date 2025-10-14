@@ -13,6 +13,7 @@ import SoftSkill from "./_components/SoftSkill";
 import Specialized from "./_components/Specialized";
 import { filters, jobs } from "@/utils/constants";
 import Application from "./_components/Application";
+import Link from 'next/link'
 
 export default function () {
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
@@ -94,12 +95,14 @@ export default function () {
                             </h2>
                         </div>
                     </div>
-                    <Button className="relative bg-[#DE3C58] text-white rounded-full w-[187px] h-[56px] hover:bg-[#F48397]">
-                        <p className="absolute top-1/2 -translate-y-1/2 left-6 text-base">Bắt đầu ngay</p>
-                        <div className="right-1 top-1/2 -translate-y-1/2 flex items-center justify-center bg-[#F48397] rounded-[50%] w-12 h-12 absolute right-0">
-                            <ArrowRight className="w-6 h-6 rotate-[-45deg]" />
-                        </div>
-                    </Button>
+                    <Link href="/dashboard">
+                        <Button className="relative bg-[#DE3C58] text-white rounded-full w-[187px] h-[56px] hover:bg-[#F48397]">
+                            <p className="absolute top-1/2 -translate-y-1/2 left-6 text-base">Bắt đầu ngay</p>
+                            <div className="right-1 top-1/2 -translate-y-1/2 flex items-center justify-center bg-[#F48397] rounded-[50%] w-12 h-12 absolute right-0">
+                                <ArrowRight className="w-6 h-6 rotate-[-45deg]" />
+                            </div>
+                        </Button>
+                    </Link>
                 </section>
 
                 <div className="mt-8 mb-4 w-full grid grid-cols-5 gap-4 mx-auto">
@@ -147,7 +150,7 @@ export default function () {
                             <SelectValue placeholder="Địa điểm làm việc" />
                         </SelectTrigger>
                         <SelectContent className="bg-white text-[#2D221B]">
-                            {jobs.map(item => item.address).map((industry, index) => (
+                            {[...new Set(jobs.map(item => item.address))].map((industry, index) => (
                                 <SelectItem
                                     key={index}
                                     value={industry}
@@ -167,7 +170,7 @@ export default function () {
                             <SelectValue placeholder="Mức lương" />
                         </SelectTrigger>
                         <SelectContent className="bg-white text-[#2D221B]">
-                            {jobs.map(item => item.salary).map((industry, index) => (
+                            {[...new Set(jobs.map(item => item.salary))].map((industry, index) => (
                                 <SelectItem
                                     key={index}
                                     value={industry}

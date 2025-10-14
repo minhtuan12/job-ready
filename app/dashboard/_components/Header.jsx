@@ -89,16 +89,14 @@ function Header() {
                         {/* Logo và tên ứng dụng */}
                         <Link href="/" className="flex-shrink-0 relative group flex items-center gap-2">
                             <Image
-                                src="/Logo.png"
+                                src="/Job Ready.png"
                                 alt="Logo"
-                                width={40}
-                                height={40}
+                                width={150}
+                                height={150}
+                                quality={100}
                                 className="w-auto h-12 relative"
                                 priority
                             />
-                            <span className="hidden sm:inline text-2xl font-bold text-[#3d463b] ml-1">
-                                Job Ready
-                            </span>
                         </Link>
 
                         {/* Menu chính ở giữa */}
@@ -112,16 +110,14 @@ function Header() {
                                         Dashboard
                                     </a>
                                 </li>
-                                {user?.packages === 'vip' ?
-                                    <li>
-                                        <a
-                                            href="/hr"
-                                            className={`font-semibold text-[#3d463b] px-2 py-1 ${isHr ? 'border-b-2 border-[#3d463b] font-semibold' : ''} hover:underline hover:text-lime-700`}
-                                        >
-                                            Phỏng vấn với HR
-                                        </a>
-                                    </li> : ''
-                                }
+                                <li>
+                                    <a
+                                        href="/hr"
+                                        className={`font-semibold text-[#3d463b] px-2 py-1 ${isHr ? 'border-b-2 border-[#3d463b] font-semibold' : ''} hover:underline hover:text-lime-700`}
+                                    >
+                                        Phỏng vấn với HR
+                                    </a>
+                                </li> : ''
                                 <li>
                                     <a
                                         href="/course"
@@ -245,16 +241,14 @@ function Header() {
                                             Dashboard
                                         </a>
                                     </li>
-                                    {user?.packages === 'vip' ?
-                                        <li>
-                                            <a
-                                                href="/hr"
-                                                className={`font-semibold text-[#3d463b] px-2 py-1 ${isHr ? 'border-b-2 border-[#3d463b] font-semibold' : ''} hover:underline hover:text-lime-700`}
-                                            >
-                                                Phỏng vấn với HR
-                                            </a>
-                                        </li> : ''
-                                    }
+                                    <li>
+                                        <a
+                                            href="/hr"
+                                            className={`font-semibold text-[#3d463b] px-2 py-1 ${isHr ? 'border-b-2 border-[#3d463b] font-semibold' : ''} hover:underline hover:text-lime-700`}
+                                        >
+                                            Phỏng vấn với HR
+                                        </a>
+                                    </li>
                                     <li>
                                         <a
                                             href="/course"

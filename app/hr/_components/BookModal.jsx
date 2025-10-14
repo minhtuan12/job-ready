@@ -183,17 +183,10 @@ const BookModal = (
                                                 height={56}
                                                 className="h-14 w-14 rounded-full object-cover"
                                             />
-                                            <Image
-                                                src={logo}
-                                                alt={`logo`}
-                                                width={24}
-                                                height={24}
-                                                className="h-6 w-6 rounded-full object-cover absolute bottom-0 -right-1 border border-white"
-                                            />
                                         </div>
                                         <div className={'space-y-2'}>
                                             <p className="font-bold text-[18px] text-[#2F3C30]">{name}</p>
-                                            <p className="text-[14px] text-[#607362]">Hr tại {company}</p>
+                                            <p className="text-[14px] text-[#607362]">{company}</p>
                                         </div>
                                     </div>
 
@@ -223,7 +216,6 @@ const BookModal = (
                                                         selected={data.date}
                                                         captionLayout="dropdown"
                                                         onSelect={(date) => {
-                                                            console.log(date);
                                                             setData({ ...data, date })
                                                             setOpen(false)
                                                         }}
@@ -266,6 +258,7 @@ const BookModal = (
                                                         Tải lên
                                                         <input
                                                             ref={fileInputRef}
+                                                            accept=".pdf,.doc,.docx"
                                                             type="file"
                                                             className="hidden"
                                                             onChange={handleChange}

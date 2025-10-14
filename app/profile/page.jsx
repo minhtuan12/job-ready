@@ -141,16 +141,57 @@ export default function () {
                 alt="Badge"
                 src={'/image-5.svg'}
               />
-              <div className="relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#e97957] rounded-full -mt-4">
-                <span className="text-white text-sm font-medium w-full text-right">
-                  Gói V-VIP
-                </span>
-                <img
-                  className="w-8 h-8 absolute -left-3 -top-1 rotate-[-10deg]"
-                  alt="Badge"
-                  src={'/image-53.png'}
-                />
-              </div>
+              {/* Free */}
+              {(!user.packages || user.packages === 'free') &&
+                <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#2F3C30] text-white rounded-full -mt-4`}>
+                  <span className="text-sm font-medium w-full text-center">
+                    Miễn phí
+                  </span>
+                </div>
+              }
+
+              {/* Standard */}
+              {user.packages === 'standard' &&
+                <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#A9DD6F] text-[#2F3C30] rounded-full -mt-4`}>
+                  <span className="text-sm font-medium w-full text-center">
+                    Standard
+                  </span>
+                  <img
+                    className="w-8 h-8 absolute -left-3 -top-1 rotate-[-10deg]"
+                    alt="Badge"
+                    src={'/standard.png'}
+                  />
+                </div>
+              }
+
+              {/* Premium */}
+              {user.packages === 'premium' &&
+                <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#DE3C58] text-white rounded-full -mt-4`}>
+                  <span className="text-sm font-medium w-full text-center">
+                    Premium
+                  </span>
+                  <img
+                    className="w-8 h-8 absolute -left-3 -top-1 rotate-[-10deg]"
+                    alt="Badge"
+                    src={'/premium.png'}
+                  />
+                </div>
+              }
+
+              {/* Vip */}
+              {user.packages === 'vip' &&
+                <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#E97A58] text-white rounded-full -mt-4`}>
+                  <span className="text-sm font-medium w-full text-center">
+                    V-VIP
+                  </span>
+                  <img
+                    className="w-8 h-8 absolute -left-3 -top-1 rotate-[-10deg]"
+                    alt="Badge"
+                    src={'/image-53.png'}
+                  />
+                </div>
+              }
+
               <div
                 className="absolute w-[15px] h-[15px] top-0 left-[108px] bg-[#a9dd6f] rounded rotate-[57.91deg]" />
             </div>

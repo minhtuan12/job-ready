@@ -35,20 +35,20 @@ function LivePracticeArenaContent() {
     // Các tùy chọn thời gian cho buổi phỏng vấn (tính bằng phút)
     const timeOptions = [
         {
-            value: "3",
-            label: "3 phút",
+            value: "15",
+            label: "15 phút",
             description: "Phỏng vấn nhanh",
             icon: "⚡"
         },
         {
-            value: "5",
-            label: "5 phút",
+            value: "30",
+            label: "30 phút",
             description: "Phỏng vấn tiêu chuẩn",
             icon: "⏱️"
         },
         {
-            value: "10",
-            label: "10 phút",
+            value: "60",
+            label: "60 phút",
             description: "Phỏng vấn chuyên sâu",
             icon: "🕒"
         },

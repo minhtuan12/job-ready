@@ -101,7 +101,7 @@ export default function Home() {
         {
             icon: Brain,
             title: "AI-Powered Interview",
-            description: "Thực hành với AI-Interview, thích nghi với câu trả lời của bạn",
+            description: "Thực hành với Job Ready, thích nghi với câu trả lời của bạn",
             color: "from-blue-500 to-blue-600"
         },
         {
@@ -159,10 +159,11 @@ export default function Home() {
                     {/* Thanh điều hướng (Navigation Bar) */}
                     <div className="flex justify-between items-center w-full md:-mt-10" style={{ minHeight: '80px' }}>
                         {/* Logo và tên ứng dụng */}
-                        <div className="flex items-center gap-3">
-                            <Image src="/Logo.png" alt="Job Ready Logo" width={40} height={40} quality={100} priority />
-                            <span className="font-bold text-2xl text-[#22372B]" style={{ fontFamily: 'Inter, sans-serif' }}>Job Ready</span>
-                        </div>
+                        <Link href={'/'}>
+                            <div className="flex items-center gap-3">
+                                <Image src="/Job Ready.png" alt="Job Ready Logo" width={150} height={150} quality={100} priority />
+                            </div>
+                        </Link>
                         {/* Menu điều hướng chính */}
                         <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
                             <Link href="/how-it-works" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Cách hoạt động</Link>
@@ -187,7 +188,7 @@ export default function Home() {
                             <h1 className="text-[56px] leading-[1.1] font-bold text-[#22372B] mb-4" style={{ letterSpacing: '-2px' }}>
                                 Chinh phục<br />
                                 nhà tuyển dụng<br />
-                                cùng <span className="bg-gradient-to-r from-[#3DC47E] to-[#1E9C5A] bg-clip-text text-transparent">AI-Interview</span>
+                                cùng <span className="bg-gradient-to-r from-[#3DC47E] to-[#1E9C5A] bg-clip-text text-transparent">Job Ready</span>
                             </h1>
                             {/* Đoạn mô tả ngắn */}
                             <p className="text-xl text-[#6B7A6A] font-normal mb-8 max-w-xl">
@@ -257,7 +258,7 @@ export default function Home() {
             <div className="max-lg:!h-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center" style={{ height: '928px', minHeight: '928px' }}>
                 <div className="text-center mb-12">
                     <h2 className="text-[48px] md:text-[56px] font-bold text-[#22372B] mb-3 md:mb-6" style={{ letterSpacing: '-1.5px' }}>Tối ưu hành trình Làm Chủ & Cải Thiện với 4 tính năng tuyệt vời</h2>
-                    <p className="text-[#4B6358] text-lg md:text-xl">AI-Interview sẽ luôn đồng hành cùng bạn xuyên suốt hành trình luyện tập cho đến ngày "hái quả ngọt"</p>
+                    <p className="text-[#4B6358] text-lg md:text-xl">Job Ready sẽ luôn đồng hành cùng bạn xuyên suốt hành trình luyện tập cho đến ngày "hái quả ngọt"</p>
                 </div>
                 {/* Scrollable feature card gallery */}
                 <FeatureScrollGallery />
@@ -371,7 +372,7 @@ export default function Home() {
                 </div>
                 <div className="relative z-10 w-full">
                     <h2 className="text-5xl font-bold text-[#22372B] text-center mb-2">Tại sao nên chọn</h2>
-                    <h2 className="text-5xl font-bold text-[#22372B] text-center mt-2">AI-Interview?</h2>
+                    <h2 className="text-5xl font-bold text-[#22372B] text-center mt-2">Job Ready?</h2>
                     <p className="text-[#7A8576] text-lg text-center mb-12 mt-4">Mọi thứ bạn cần để thể hiện tốt nhất trong các cuộc phỏng vấn</p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
                         {/* Card 1 */}
@@ -436,7 +437,7 @@ export default function Home() {
                             phỏng vấn tiếp theo?
                         </h2>
                         <p className="text-base lg:text-lg text-[#4B6358] mb-4 text-center">
-                            Cùng AI-Interviews xây dựng sự tự tin ngay hôm nay
+                            Cùng Job Ready xây dựng sự tự tin ngay hôm nay
                         </p>
                         <Link href="/dashboard">
                             <button
@@ -489,11 +490,10 @@ export default function Home() {
                     {/* Left: Logo and Description */}
                     <div className="flex-1 min-w-[220px] flex flex-col gap-3 items-start justify-start">
                         <div className="flex items-center gap-2 mb-2">
-                            <Image src="/Logo.png" alt="Job Ready Logo" width={88} height={88} quality={100} priority />
-                            <span className="font-bold text-2xl text-[#22372B]">Job Ready</span>
+                            <Image src="/Job Ready.png" alt="Job Ready Logo" width={120} height={120} quality={100} priority />
                         </div>
                         <p className="text-[#4B6358] text-base">
-                            AI Interview là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
+                            Job Ready là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
                         </p>
                     </div>
                     {/* Right: All Links */}

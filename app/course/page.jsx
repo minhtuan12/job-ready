@@ -11,6 +11,7 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Tabs } from "antd";
 import SoftSkill from "./_components/SoftSkill";
 import Specialized from "./_components/Specialized";
+import Link from 'next/link';
 
 export default function () {
     const [selectedCompany, setSelectedCompany] = React.useState('Tất cả công ty');
@@ -109,19 +110,21 @@ export default function () {
                             </h2>
                         </div>
                     </div>
-                    <Button className="relative bg-[#DE3C58] text-white rounded-full w-[187px] h-[56px] hover:bg-[#F48397]">
-                        <p className="absolute top-1/2 -translate-y-1/2 left-6 text-base">Bắt đầu ngay</p>
-                        <div className="right-1 top-1/2 -translate-y-1/2 flex items-center justify-center bg-[#F48397] rounded-[50%] w-12 h-12 absolute right-0">
-                            <ArrowRight className="w-6 h-6 rotate-[-45deg]" />
-                        </div>
-                    </Button>
+                    <Link href="/dashboard">
+                        <Button className="relative bg-[#DE3C58] text-white rounded-full w-[187px] h-[56px] hover:bg-[#F48397]">
+                            <p className="absolute top-1/2 -translate-y-1/2 left-6 text-base">Bắt đầu ngay</p>
+                            <div className="right-1 top-1/2 -translate-y-1/2 flex items-center justify-center bg-[#F48397] rounded-[50%] w-12 h-12 absolute right-0">
+                                <ArrowRight className="w-6 h-6 rotate-[-45deg]" />
+                            </div>
+                        </Button>
+                    </Link>
                 </section>
 
                 <section className="w-full mx-auto my-10">
                     <h3 className="text-[32px] font-semibold text-[#2f3c30] mb-6">
                         Các học viên khác cũng đang học
                     </h3>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <div className="flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
                             <div className={'flex justify-between w-full'}>
                                 <div className={'flex flex-col gap-2'}>
@@ -141,6 +144,7 @@ export default function () {
                                         </div>
                                     </div>
                                 </div>
+                                <img src={'/c1.png'} className="h-full rounded-lg w-[173px]" />
                             </div>
                         </div>
                         <div className="flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
@@ -162,6 +166,7 @@ export default function () {
                                         </div>
                                     </div>
                                 </div>
+                                <img src={'/c2.png'} className="h-full rounded-lg w-[173px]" />
                             </div>
                         </div>
                     </div>

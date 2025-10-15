@@ -100,7 +100,7 @@ function Header() {
                         </Link>
 
                         {/* Menu chính ở giữa */}
-                        <nav className="flex-1 flex items-center justify-center max-[1440px]:hidden">
+                        <nav className="flex-1 flex items-center justify-center max-[1550px]:hidden">
                             <ul className="flex gap-8">
                                 <li>
                                     <a
@@ -214,7 +214,7 @@ function Header() {
                                 ""
                             )}
                             <Menu
-                                className="cursor-pointer ml-1 text-[50px] min-[1440px]:hidden"
+                                className="cursor-pointer ml-1 text-[50px] min-[1550px]:hidden"
                                 color="black"
                                 onClick={() =>
                                     setShowMenuDrawer(!showMenuDrawer)

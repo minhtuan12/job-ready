@@ -119,9 +119,9 @@ function CustomSignUpForm() {
     return (
         <div className="w-full max-w-md flex flex-col items-center justify-center min-[1500px]:translate-x-36 max-sm:px-2">
             <Image
-                src="/logo.png"
+                src="/Job Ready.png"
                 alt="Logo"
-                width={64}
+                width={200}
                 height={64}
                 className="mb-4"
             />
@@ -266,10 +266,10 @@ export default function Page() {
                 />
                 <div className="absolute right-0 top-1/2 -translate-y-1/2">
                     <Image
-                        src="/sign-up.png"
+                        src="/Frame 129 (1).png"
                         alt="Sign In Illustration"
                         width={750}
-                        height={950}
+                        height={700}
                         quality={100}
                         priority
                     />

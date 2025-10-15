@@ -583,7 +583,7 @@ Your task:
                     </AnimatePresence>
                     {/* Scenario Info Drawer (Mobile) */}
                     <AnimatePresence>
-                        {showScenarioPanel && (
+                        {showScenarioPanel ? (
                             <motion.div
                                 initial={{ x: '100%' }}
                                 animate={{ x: 0 }}
@@ -671,7 +671,7 @@ Your task:
                                     </div>
                                 </div>
                             </motion.div>
-                        )}
+                        ) : <img src="thắc mắc.png" className="w-[720px] h-[816px]" />}
                     </AnimatePresence>
                 </div>
                 {/* Overlay Control Bar: fixed at bottom center, overlays ConversationBox */}

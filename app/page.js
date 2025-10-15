@@ -257,7 +257,7 @@ export default function Home() {
             {/* Featured Benefits Section - Vietnamese Redesign */}
             <div className="max-lg:!h-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center" style={{ height: '928px', minHeight: '928px' }}>
                 <div className="text-center mb-12">
-                    <h2 className="text-[48px] md:text-[56px] font-bold text-[#22372B] mb-3 md:mb-6" style={{ letterSpacing: '-1.5px' }}>Tối ưu hành trình Làm Chủ & Cải Thiện với 4 tính năng tuyệt vời</h2>
+                    <h2 className="text-[30px] md:text-[40px] font-bold text-[#22372B] mb-3 md:mb-6 md:px-48 box-border" style={{ letterSpacing: '-1.5px' }}>Tối ưu hành trình Làm Chủ & Cải Thiện với 4 tính năng tuyệt vời</h2>
                     <p className="text-[#4B6358] text-lg md:text-xl">Job Ready sẽ luôn đồng hành cùng bạn xuyên suốt hành trình luyện tập cho đến ngày "hái quả ngọt"</p>
                 </div>
                 {/* Scrollable feature card gallery */}

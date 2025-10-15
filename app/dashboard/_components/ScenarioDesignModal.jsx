@@ -410,7 +410,7 @@ ${cvText ? `\n\nThis is the candidate's CV content. Use it to tailor interview q
             {/* Header của modal */}
             <div className="w-full max-w-lg rounded-t-[36px] bg-[#4B372E] pt-7 pb-4 px-8 flex flex-col relative z-20 overflow-hidden">
               {/* Ảnh nền header */}
-              <div className="absolute inset-0 w-full h-full bg-no-repeat bg-top-right bg-cover pointer-events-none" style={{ backgroundImage: 'url(/scenario_background_1.png)' }} />
+              <img src={'/giới thiệu 1.png'} className="absolute top-0 w-30 h-30 right-0" />
               {/* Tiêu đề và mô tả ngắn */}
               <div className="relative z-20 flex flex-row items-start justify-between">
                 <div className="flex flex-col gap-1">

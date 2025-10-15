@@ -29,7 +29,7 @@ function DashBoard() {
                     {/* Avatar người dùng */}
                     <div className="w-24 h-24 flex items-center justify-center relative overflow-hidden">
                         <Image
-                            src="/dasboard_icon_1.png"
+                            src="/Group 41.png"
                             alt="User Avatar"
                             layout="fill"
                             objectFit="cover"
@@ -60,14 +60,15 @@ function DashBoard() {
                         <div className="relative h-full">
                             {/* Hiệu ứng bóng đổ cho card */}
                             <Card className="bg-lime-600 max-[580px]:bg-[#b6ed76] rounded-[2.5rem] overflow-hidden border-none h-full w-full absolute top-1.5 left-0 z-0" />
+                            <Card className="bg-[#B5ED76] max-[580px]:bg-[#b6ed76] rounded-[2.5rem] overflow-hidden border-none h-full w-full absolute top-0 left-0 z-0" />
                             {/* Card chính với nội dung */}
                             <Image
-                                src="/dasboard_background_1.png"
+                                src="/phát triển.png"
                                 alt="Background"
-                                layout="fill"
-                                objectFit="cover"
+                                width={300}
+                                height={300}
                                 quality={100}
-                                className="absolute inset-0 rounded-[2rem] max-[580px]:hidden"
+                                className="absolute right-0 bottom-0 rounded-[2rem] max-[580px]:hidden"
                             />
                             <CardContent className="p-8 h-full flex text-gray-800 relative z-10">
                                 {/* Container cho nội dung bên trái */}

@@ -1308,11 +1308,14 @@ const JobProposal = ({ score, open = true, failed = false }) => {
                                 {failed ? 'Hãy luyện tập thêm với AI để cải thiện điểm số và tăng cơ hội được gợi ý việc làm.' : 'Dựa trên điểm số của bạn, chúng tôi đề xuất một số việc làm phù hợp từ đối tác.'}
                             </div>
                         </div>
-                        {!failed ?
-                            <div className="mt-6">
-
+                        {failed ?
+                            <div className="mt-6 text-center relative">
+                                <img src="/Frame 1618872909.png" className="absolute top-20 w-full" />
+                                <img src="/huhu.png" className="relative z-10 left-1/2 -translate-x-1/2" />
                             </div>
-                            : ''
+                            : <div className="mt-6">
+                                {/* TODO: Gợi ý việc làm */}
+                            </div>
                         }
                     </div>
                 </div>

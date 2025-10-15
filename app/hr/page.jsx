@@ -24,7 +24,7 @@ function Hr() {
     const user = useUser();
 
     return (
-        user.packages === 'vip' ? <div className="w-full min-h-screen bg-[#FAF8F6]">
+        user?.packages === 'vip' ? <div className="w-full min-h-screen bg-[#FAF8F6]">
             <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-4 py-12">
                 <div className={'flex justify-between items-center w-full'}>
                     <div className={'font-semibold text-[32px] text-[#2F3C30]'}>Danh sách HR</div>

@@ -142,7 +142,7 @@ export default function () {
                 src={'/image-5.svg'}
               />
               {/* Free */}
-              {(!user.packages || user.packages === 'free') &&
+              {(!user?.packages || user?.packages === 'free') &&
                 <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#2F3C30] text-white rounded-full -mt-4`}>
                   <span className="text-sm font-medium w-full text-center">
                     Miễn phí
@@ -151,7 +151,7 @@ export default function () {
               }
 
               {/* Standard */}
-              {user.packages === 'standard' &&
+              {user?.packages === 'standard' &&
                 <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#A9DD6F] text-[#2F3C30] rounded-full -mt-4`}>
                   <span className="text-sm font-medium w-full text-center">
                     Standard
@@ -165,7 +165,7 @@ export default function () {
               }
 
               {/* Premium */}
-              {user.packages === 'premium' &&
+              {user?.packages === 'premium' &&
                 <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#DE3C58] text-white rounded-full -mt-4`}>
                   <span className="text-sm font-medium w-full text-center">
                     Premium
@@ -179,7 +179,7 @@ export default function () {
               }
 
               {/* Vip */}
-              {user.packages === 'vip' &&
+              {user?.packages === 'vip' &&
                 <div className={`relative flex items-center gap-2 w-[100px] px-4 py-1 bg-[#E97A58] text-white rounded-full -mt-4`}>
                   <span className="text-sm font-medium w-full text-center">
                     V-VIP

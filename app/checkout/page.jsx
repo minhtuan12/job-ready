@@ -124,7 +124,7 @@ export default function PaymentPage({ searchParams }) {
           </p>
           <div className="bg-white border border-green-300 rounded-xl p-4 text-center">
             <img
-              src={`https://qr.sepay.vn/img?acc=${process.env.NEXT_PUBLIC_SEPAY_ACCOUNT}&bank=${process.env.NEXT_PUBLIC_SEPAY_BANK}&amount=10000&des=${user.id}JR${info.id}JRDA`}
+              src={`https://qr.sepay.vn/img?acc=${process.env.NEXT_PUBLIC_SEPAY_ACCOUNT}&bank=${process.env.NEXT_PUBLIC_SEPAY_BANK}&amount=${info.price}&des=${user.id}JR${info.id}JRDA`}
               className="mx-auto w-40 h-40"
             />
             <p className="text-sm text-gray-700 mt-2 mb-1">Mở ứng dụng ngân hàng số và quét mã QR dưới đây</p>

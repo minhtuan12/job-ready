@@ -84,6 +84,7 @@ export default function () {
   const [openEditProfile, setOpenEditProfile] = useState(false);
 
   const [bookings, setBookings] = useState([]);
+  const [registeredCourses, setRegisteredCourses] = useState([]);
 
   const fetchBookings = async () => {
     try {
@@ -95,6 +96,19 @@ export default function () {
       setBookings(data.bookings);
     } catch (error) {
       console.error('Error fetching bookings:', error);
+    }
+  };
+
+  const fetchRegisteredCourses = async () => {
+    try {
+      const response = await fetch('/api/course-register');
+      if (!response.ok) {
+        throw new Error('Failed to fetch registered courses');
+      }
+      const data = await response.json();
+      setRegisteredCourses(data.courseRegisters);
+    } catch (error) {
+      console.error('Error fetching registered courses:', error);
     }
   };
 
@@ -111,8 +125,8 @@ export default function () {
     },
     {
       key: '3',
-      label: 'Khoá học đã đăng ký (0)',
-      children: <Course />,
+      label: `Khoá học đã đăng ký (${registeredCourses?.length || 0})`,
+      children: <Course courses={registeredCourses} />,
     },
     {
       key: '4',
@@ -122,7 +136,8 @@ export default function () {
   ], [bookings, setShowDesignModal, user]);
 
   useEffect(() => {
-    fetchBookings()
+    fetchBookings();
+    fetchRegisteredCourses();
   }, [user]);
 
   return (

@@ -6,7 +6,7 @@ import { db } from "@/utils/db";
 import { Application, Booking, CourseRegister, User } from "@/utils/schema";
 import { eq, sql } from "drizzle-orm";
 import { sendMail } from "@/service/mail";
-import { softSkills } from "@/utils/constants";
+import { courses, softSkills } from "@/utils/constants";
 
 export async function GET(req) {
   try {
@@ -18,10 +18,12 @@ export async function GET(req) {
       });
     }
 
-    const courseRegisters = await db
+    const courses = await db
       .select()
       .from(CourseRegister)
       .where(eq(CourseRegister.candidateId, user.id));
+    const courseIds = new Set(courses.map(item => item.courseId));
+    const courseRegisters = softSkills.filter(item => courseIds.has(item.id));
 
     return NextResponse.json({ courseRegisters, status: 200 });
   } catch (err) {

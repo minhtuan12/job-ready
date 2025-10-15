@@ -5,13 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function Course() {
-    const courses = [
-        { name: 'Khoá học kĩ năng giao tiếp', date: '24/09/2025' },
-        { name: 'Khoá học kĩ năng giao tiếp 2', date: '24/09/2025' },
-        { name: 'Khoá học kĩ năng giao tiếp 3', date: '24/09/2025' },
-        { name: 'Khoá học kĩ năng giao tiếp 4', date: '24/09/2025' }
-    ]
+export default function Course({ courses }) {
     const [searchTerm, setSearchTerm] = useState("");
     const router = useRouter();
 
@@ -37,7 +31,7 @@ export default function Course() {
                             <div className={'flex flex-col gap-2'}>
                                 <div className={'flex items-center text-[#607362] gap-3'}>
                                     <Calendar className={'w-4 h-4'} />
-                                    {i.date}
+                                    {i.date || '15/10/2025'}
                                 </div>
                                 <div className={'text-[#2F3C30] text-[18px] font-bold'}>{i.name}</div>
                                 <div className={'flex items-center gap-2'}>

@@ -44,7 +44,7 @@ function ForgotPassword() {
     return (
         <div className="w-full max-w-md flex flex-col items-center justify-center min-[1500px]:translate-x-36 max-sm:px-2">
             <Image
-                src="/logo.png"
+                src="/Job Ready.png"
                 alt="Logo"
                 width={64}
                 height={64}
@@ -77,7 +77,7 @@ function ForgotPassword() {
                     className="w-full rounded-full bg-[#B5ED76] hover:bg-[#b6f2c7] text-gray-900 font-semibold py-3 mt-2 mb-4 text-base transition-all duration-300"
                     disabled={loading}
                 >
-                    {loading ? "Đang gửi yêu cầu..." : "Gửi yêu cầu tạo lại mật khẩu"}
+                    {loading ? "Đang gửi yêu cầu..." : "Cấp lại mật khẩu mới"}
                 </button>
                 {error && (
                     <div className="text-red-500 text-center mb-2">{error}</div>

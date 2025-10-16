@@ -63,7 +63,7 @@ function DashBoard() {
                             <Card className="bg-[#B5ED76] max-[580px]:bg-[#b6ed76] rounded-[2.5rem] overflow-hidden border-none h-full w-full absolute top-0 left-0 z-0" />
                             {/* Card chính với nội dung */}
                             <Image
-                                src="/phát triển.png"
+                                src="/develop.png"
                                 alt="Background"
                                 width={300}
                                 height={300}

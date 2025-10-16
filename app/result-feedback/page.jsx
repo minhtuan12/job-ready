@@ -380,7 +380,7 @@ function ResultFeedbackContent() {
                     <div
                         className="flex flex-col items-center justify-between bg-[#F7F5EF] rounded-2xl py-4 cursor-pointer transition hover:shadow-md h-[110px]"
                         onClick={() =>
-                            openModal("Độ khó", sessionData.scenario.difficulty)
+                            openModal("Độ khó", sessionData?.scenario?.difficulty || '')
                         }
                     >
                         <Image
@@ -392,7 +392,7 @@ function ResultFeedbackContent() {
                         />
                         <span className="text-[#6B7A6C] text-xs">Độ khó</span>
                         <span className="font-bold text-base text-[#38423B]">
-                            {sessionData.scenario.difficulty}
+                            {sessionData?.scenario?.difficulty || ''}
                         </span>
                     </div>
                     <div
@@ -400,7 +400,7 @@ function ResultFeedbackContent() {
                         onClick={() =>
                             openModal(
                                 "Câu trả lời",
-                                `${sessionData.conversation.length}`
+                                `${sessionData.conversation?.length || 0}`
                             )
                         }
                     >
@@ -415,7 +415,7 @@ function ResultFeedbackContent() {
                             Câu trả lời
                         </span>
                         <span className="font-bold text-base text-[#38423B]">
-                            {sessionData.conversation.length}
+                            {sessionData?.conversation?.length || 0}
                         </span>
                     </div>
                 </div>
@@ -1101,7 +1101,7 @@ function ResultFeedbackContent() {
                     </div>
                 )}
                 {activeTab === "propose" && (
-                    <div className="bg-[#E5EFD9] rounded-[16px] p-4 w-full flex flex-col gap-4">
+                    sortedWeaknesses?.[0]?.[0] ? <div className="bg-[#E5EFD9] rounded-[16px] p-4 w-full flex flex-col gap-4">
                         <div className="flex justify-between w-full items-center">
                             <div className="flex items-center text-black font-bold w-[80%]">
                                 <img src={'/check.png'} className="mr-1" />
@@ -1114,6 +1114,39 @@ function ResultFeedbackContent() {
                         </div>
                         <div ref={carouselRef} className="w-auto overflow-x-auto flex gap-4 pb-3 scrollbar-hide snap-x snap-mandatory scroll-smooth">
                             {softSkills.filter(i => coursesProposal.includes(i.name)).map((item, index) => (
+                                <div key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
+                                    <div className={'flex justify-between w-full'}>
+                                        <div className={'flex flex-col gap-2'}>
+                                            <div className={'flex items-center text-[#607362] gap-3'}>
+                                                <Calendar className={'w-4 h-4'} />
+                                                28/09/2025 20:30
+                                            </div>
+                                            <div className={'text-[#2F3C30] text-[18px] font-bold'}>{item.name}</div>
+                                            <div className={'flex items-center gap-2'}>
+                                                <div className={'flex items-center justify-center w-auto px-2 h-[30px] gap-2 bg-[#F5F7F6] rounded-full'}>
+                                                    <img src={'/target_fill.png'} alt={''} />
+                                                    <span className={'text-[#607362]'}>Online</span>
+                                                </div>
+                                                <div className={'flex items-center justify-center w-auto px-2 h-[30px] gap-2 bg-[#F5F7F6] rounded-full'}>
+                                                    <Clock className={'w-4 h-4 text-gray-600'} />
+                                                    <span className={'text-[#607362]'}>60 phút</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src={'/c1.png'} className="h-full rounded-lg w-[173px]" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div> : <div className="bg-[#E5EFD9] rounded-[16px] p-4 w-full flex flex-col gap-4">
+                        <div className="flex justify-between w-full items-center">
+                            <div className="flex items-center gap-2">
+                                <img src={'/left.png'} className="cursor-pointer" onClick={() => scrollByItem('left')} />
+                                <img src={'/left.png'} className="rotate-[180deg] cursor-pointer" onClick={() => scrollByItem('right')} />
+                            </div>
+                        </div>
+                        <div ref={carouselRef} className="w-auto overflow-x-auto flex gap-4 pb-3 scrollbar-hide snap-x snap-mandatory scroll-smooth">
+                            {softSkills.map((item, index) => (
                                 <div key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
                                     <div className={'flex justify-between w-full'}>
                                         <div className={'flex flex-col gap-2'}>

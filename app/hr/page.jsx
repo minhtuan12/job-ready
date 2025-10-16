@@ -10,6 +10,7 @@ import { hrList } from "@/utils/constants";
 import { useUser } from "../context/UserContext";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { X } from "lucide-react";
 
 function Hr() {
     const [selectedCompany, setSelectedCompany] = React.useState('Tất cả công ty');
@@ -119,6 +120,18 @@ function Hr() {
                         transition={{ duration: 0.3, ease: 'easeOut' }}
                         className="relative w-full max-w-xl px-2 sm:px-0 flex flex-col items-center z-10 max-h-[90vh]"
                     >
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => {
+                                window.location.href = '/dashboard'
+                            }}
+                            className="absolute top-11 -right-9 w-9 h-9 bg-white shadow-lg border border-gray-200 flex items-center justify-center rounded-r-full rounded-l-none z-40 hover:bg-gray-100 transition-all duration-150"
+                            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.10)' }}
+                            aria-label="Đóng"
+                        >
+                            <X className="w-12 h-12 text-[#2D221B]" />
+                        </Button>
                         {/* Viền nâu phía dưới, trái, phải */}
                         <div
                             className="w-full max-w-xl h-auto rounded-b-[20px] flex flex-col items-center relative z-10"

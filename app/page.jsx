@@ -101,7 +101,7 @@ export default function Home() {
         {
             icon: Brain,
             title: "AI-Powered Interview",
-            description: "Thực hành với Job Ready, thích nghi với câu trả lời của bạn",
+            description: "Thực hành với JobReady, thích nghi với câu trả lời của bạn",
             color: "from-blue-500 to-blue-600"
         },
         {
@@ -165,8 +165,13 @@ export default function Home() {
                             </div>
                         </Link>
                         {/* Menu điều hướng chính */}
-                        <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
-                            <Link href="/pricing" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Bảng giá</Link>
+                        <nav className="hidden min-[1200px]:flex max-lg:gap-7 gap-8 text-lg">
+                            <Link href="/dashboard" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Trang chủ</Link>
+                            <Link href="/hr" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Phỏng vấn với HR</Link>
+                            <Link href="/course" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Khóa học</Link>
+                            <Link href="/job" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Việc làm</Link>
+                            <Link href="#" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Về chúng tôi</Link>
+                            <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Bảng giá</Link>
                         </nav>
                         {/* Nút CTA (Call-to-Action) chính */}
                         <Link href="/dashboard">
@@ -186,7 +191,7 @@ export default function Home() {
                             <h1 className="text-[56px] leading-[1.1] font-bold text-[#22372B] mb-4" style={{ letterSpacing: '-2px' }}>
                                 Chinh phục<br />
                                 nhà tuyển dụng<br />
-                                cùng <span className="bg-gradient-to-r from-[#3DC47E] to-[#1E9C5A] bg-clip-text text-transparent">Job Ready</span>
+                                cùng <span className="bg-gradient-to-r from-[#3DC47E] to-[#1E9C5A] bg-clip-text text-transparent">JobReady</span>
                             </h1>
                             {/* Đoạn mô tả ngắn */}
                             <p className="text-xl text-[#6B7A6A] font-normal mb-8 max-w-xl">
@@ -258,7 +263,7 @@ export default function Home() {
                 </div>
                 {/* Scrollable feature card gallery */}
                 <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 w-full">
-                    <div className="relative">
+                    <div className="relative lg:inline hidden">
                         <img src="/Vector 5.png" className="absolute -bottom-5 -left-10" />
                         <img src="/bag.png" className="absolute bottom-0 left-0" />
                     </div>
@@ -304,7 +309,7 @@ export default function Home() {
             <div className="max-lg:!h-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center" style={{ height: '928px', minHeight: '928px' }}>
                 <div className="text-center mb-12">
                     <h2 className="text-[30px] md:text-[40px] font-bold text-[#22372B] mb-3 md:mb-6 md:px-48 box-border" style={{ letterSpacing: '-1.5px' }}>Tối ưu hành trình Làm Chủ & Cải Thiện với 4 tính năng tuyệt vời</h2>
-                    <p className="text-[#4B6358] text-lg md:text-xl">Job Ready sẽ luôn đồng hành cùng bạn xuyên suốt hành trình luyện tập cho đến ngày "hái quả ngọt"</p>
+                    <p className="text-[#4B6358] text-lg md:text-xl">JobReady sẽ luôn đồng hành cùng bạn xuyên suốt hành trình luyện tập cho đến ngày "hái quả ngọt"</p>
                 </div>
                 {/* Scrollable feature card gallery */}
                 <FeatureScrollGallery />
@@ -419,7 +424,7 @@ export default function Home() {
                 </div>
                 <div className="relative z-10 w-full">
                     <h2 className="text-5xl font-bold text-[#22372B] text-center mb-2">Tại sao nên chọn</h2>
-                    <h2 className="text-5xl font-bold text-[#22372B] text-center mt-2">Job Ready?</h2>
+                    <h2 className="text-5xl font-bold text-[#22372B] text-center mt-2">JobReady?</h2>
                     <p className="text-[#7A8576] text-lg text-center mb-12 mt-4">Mọi thứ bạn cần để thể hiện tốt nhất trong các cuộc phỏng vấn</p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
                         {/* Card 1 */}
@@ -484,7 +489,7 @@ export default function Home() {
                             phỏng vấn tiếp theo?
                         </h2>
                         <p className="text-base lg:text-lg text-[#4B6358] mb-4 text-center">
-                            Cùng Job Ready xây dựng sự tự tin ngay hôm nay
+                            Cùng JobReady xây dựng sự tự tin ngay hôm nay
                         </p>
                         <Link href="/dashboard">
                             <button
@@ -540,7 +545,7 @@ export default function Home() {
                             <Image src="/Job Ready.png" alt="Job Ready Logo" width={120} height={120} quality={100} priority />
                         </div>
                         <p className="text-[#4B6358] text-base">
-                            Job Ready là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
+                            JobReady là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
                         </p>
                     </div>
                     {/* Right: All Links */}
@@ -565,7 +570,7 @@ export default function Home() {
                 </div>
                 <hr className="my-8 border-[#F0F0E0]" />
                 <div className="text-center text-[#7A8576] text-sm">
-                    Copyright © Job Ready 2025. All Rights Reserved
+                    Copyright © JobReady 2025. All Rights Reserved
                 </div>
             </footer>
         </div>

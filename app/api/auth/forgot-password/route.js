@@ -34,7 +34,7 @@ export async function POST(request) {
                     or(eq(User.email, email), eq(User.username, email))
                 ),
             sendMail({
-                subject: `Job Ready - Mật khẩu mới cho tài khoản ${email}`,
+                subject: `JobReady - Mật khẩu mới cho tài khoản ${email}`,
                 to: user.email,
                 text: "Mật khẩu mới là: User@123",
             })

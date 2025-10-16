@@ -17,7 +17,7 @@ export async function sendMail({
     });
 
     const info = await transporter.sendMail({
-        from: `"Job Ready" <job-ready@gmail.com>`,
+        from: `"JobReady" <job-ready@gmail.com>`,
         to,
         subject,
         text,

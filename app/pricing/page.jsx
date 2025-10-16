@@ -59,7 +59,12 @@ export default function Home() {
               <Image src="/Job Ready.png" alt="Job Ready Logo" width={150} height={150} quality={100} priority />
             </Link>
             {/* Menu */}
-            <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
+            <nav className="hidden min-[1200px]:flex max-lg:gap-7 gap-8 text-lg">
+              <Link href="/dashboard" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Trang chủ</Link>
+              <Link href="/hr" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Phỏng vấn với HR</Link>
+              <Link href="/course" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Khóa học</Link>
+              <Link href="/job" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Việc làm</Link>
+              <Link href="#" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Về chúng tôi</Link>
               <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Bảng giá</Link>
             </nav>
             {/* CTA Button */}
@@ -180,7 +185,7 @@ export default function Home() {
 
           {/* Benefits Section */}
           <div className="mt-24 mb-16 text-center max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#22372B] mb-12">Tại sao nên chọn Job Ready?</h2>
+            <h2 className="text-3xl font-bold text-[#22372B] mb-12">Tại sao nên chọn JobReady?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center mx-auto mb-6">
@@ -217,7 +222,7 @@ export default function Home() {
           <div className="flex-1 min-w-[220px] flex flex-col gap-3 items-start justify-start">
             <div className="flex items-center gap-2 mb-2">
               <Image src="/Logo.png" alt="Job Ready Logo" width={88} height={88} quality={100} priority />
-              <span className="font-bold text-2xl text-[#22372B]">Job Ready</span>
+              <span className="font-bold text-2xl text-[#22372B]">JobReady</span>
             </div>
             <p className="text-[#4B6358] text-base">
               AI Interview là nền tảng phỏng vấn thử ứng dụng trí tuệ nhân tạo, giúp bạn luyện tập kỹ năng trả lời phỏng vấn mọi lúc, mọi nơi
@@ -234,7 +239,7 @@ export default function Home() {
             </div>
             {/* About Links */}
             <div className="min-w-[150px]">
-              <div className="font-bold text-[#22372B] mb-3">Về Job Ready</div>
+              <div className="font-bold text-[#22372B] mb-3">Về JobReady</div>
               <ul className="space-y-2">
                 <li><a href="#policy" className="text-[#4B6358] hover:underline">Chính sách</a></li>
                 <li><a href="#terms" className="text-[#4B6358] hover:underline">Điều khoản và dịch vụ</a></li>
@@ -245,7 +250,7 @@ export default function Home() {
         </div>
         <hr className="my-8 border-[#F0F0E0]" />
         <div className="text-center text-[#7A8576] text-sm">
-          Copyright © Job Ready 2025. All Rights Reserved
+          Copyright © JobReady 2025. All Rights Reserved
         </div>
       </footer>
     </div>

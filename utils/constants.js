@@ -96,7 +96,7 @@ export const jobs = [
     {
         id: 1,
         experience: '1-2 năm',
-        thumbnail: "/viettel.png",
+        thumbnail: "/365238666_770665068397725_1463111150410598255_n.jpg",
         name: "Nhân viên Content Marketing",
         address: "Hà Nội",
         salary: "Thỏa thuận",
@@ -135,7 +135,7 @@ export const jobs = [
     {
         id: 2,
         experience: '2 năm kinh nghiệm',
-        thumbnail: "/mbbank.png",
+        thumbnail: "/1621246140_0001.jpg",
         name: "Nhân viên kế toán tổng hợp",
         address: "Hà Nội",
         salary: "15-20 triệu",
@@ -170,12 +170,12 @@ export const jobs = [
     {
         id: 3,
         experience: 'Không yêu cầu',
-        thumbnail: "/shopee.png",
+        thumbnail: "/468707963_596215799415530_1881912701683466829_n.jpg",
         name: "Nhân viên phát triển web",
         address: "Hà Nội",
         salary: "10 triệu",
         category: "IT",
-        company: "Ninalink Group",
+        company: "Vinalink Group",
         descriptions: [
             "Tham gia trực tiếp các sản phẩm công ty đang phát triển và các phần mềm hỗ trợ quản lý nội bộ trong công ty.",
             "Tham gia phát triển dự án công ty do team phát triển từ đầu.",

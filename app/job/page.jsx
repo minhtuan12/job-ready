@@ -196,7 +196,7 @@ export default function () {
                                 return <div key={index} onClick={() => setSelectedJob(item)} className={`relative cursor-pointer flex flex-col gap-2 ${isActive ? 'bg-[#F8FEF2]' : ''}`}>
                                     <div className={`${isActive ? ' before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-[#4D7323] before:rounded-t-l-full before:content-[""]' : ''} p-5 flex flex-col gap-3`}>
                                         <div className="flex items-center gap-4">
-                                            <img src={item.thumbnail} className="rounded-[8px]" />
+                                            <img src={item.thumbnail} className="rounded-[8px] w-[50px] h-[50px]" />
                                             <div className="flex flex-col gap-1">
                                                 <div className="text-[#2F3C30] font-bold text-base">{item.name}</div>
                                                 <div className="text-[#607362] text-[14px]">{item.company}</div>

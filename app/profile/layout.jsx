@@ -3,8 +3,8 @@ import Header from './_components/Header'
 
 // Add metadata configuration for dashboard
 export const metadata = {
-    title: 'Job Ready | Trang chủ',
-    description: 'Job Ready dashboard',
+    title: 'JobReady | Trang chủ',
+    description: 'JobReady dashboard',
 }
 
 function DashBoardLayout({ children }) {

@@ -23,6 +23,8 @@ import {
     BarChart3,
     Calendar,
     X,
+    MapPin,
+    CircleDollarSign,
 } from "lucide-react";
 import { format } from "date-fns";
 import { generateSessionPDF } from "@/utils/pdfGenerator";
@@ -42,7 +44,7 @@ import {
     DialogDescription,
 } from "@/components/ui/dialog";
 import Image from "next/image";
-import { softSkills } from "@/utils/constants";
+import { filters, jobs, softSkills } from "@/utils/constants";
 
 // Hàm lấy và hiển thị kết quả phản hồi phỏng vấn
 function ResultFeedbackContent() {
@@ -1346,8 +1348,44 @@ const JobProposal = ({ score, open = true, failed = false }) => {
                                 <img src="/Frame 1618872909.png" className="absolute top-20 w-full" />
                                 <img src="/huhu.png" className="relative z-10 left-1/2 -translate-x-1/2" />
                             </div>
-                            : <div className="mt-6">
-                                {/* TODO: Gợi ý việc làm */}
+                            : <div className="mt-8 px-10">
+                                <div className="flex flex-col border border-[#ebebeb] h-full overflow-y-auto w-full rounded-[8px]">
+                                    {jobs.map((item, index) => {
+                                        const category = filters.find(i => i.key === item.category);
+                                        return <div key={index} onClick={() => {
+                                            window.location.href = '/job';
+                                        }} className={`relative cursor-pointer flex flex-col gap-2`}>
+                                            <div className={`p-5 flex flex-col gap-3`}>
+                                                <div className="flex items-center gap-4">
+                                                    <img src={item.thumbnail} className="rounded-[8px] w-[50px] h-[50px]" />
+                                                    <div className="flex flex-col gap-1">
+                                                        <div className="text-[#2F3C30] font-bold text-base">{item.name}</div>
+                                                        <div className="text-[#607362] text-[14px]">{item.company}</div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-2">
+                                                    <div className={`mt-4 h-[30px] px-4 py-2 w-fit flex gap-2 rounded-full bg-[#F5F7F6] items-center justify-center`}>
+                                                        <MapPin className="text-gray-500 w-4 h-4" />
+                                                        <p className={`text-[#607362] text-[14px]`}>{item.address}</p>
+                                                    </div>
+                                                    <div className={`mt-4 h-[30px] px-4 py-2 w-fit flex gap-2 rounded-full bg-[#F5F7F6] items-center justify-center`}>
+                                                        <CircleDollarSign className="text-gray-500 w-4 h-4" />
+                                                        <p className={`text-[#607362] text-[14px]`}>{item.salary}</p>
+                                                    </div>
+                                                    <div className={`mt-4 h-[30px] px-4 py-2 w-fit flex gap-2 rounded-full bg-[#F5F7F6] items-center justify-center`}>
+                                                        <img src={category.icon} />
+                                                        <p className={`text-[#607362] text-[14px]`}>{item.category}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {
+                                                index === jobs.length - 1 ? '' : <div className="w-full bg-[#f3f3f3]">
+                                                    <div className="h-px bg-[#dadada]" />
+                                                </div>
+                                            }
+                                        </div>
+                                    })}
+                                </div>
                             </div>
                         }
                     </div>

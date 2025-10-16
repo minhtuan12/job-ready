@@ -79,6 +79,10 @@ function Hr() {
                                         tiết</Button>
                                     <Button
                                         onClick={() => {
+                                            if (!user) {
+                                                window.location.href = '/sign-in';
+                                                return;
+                                            }
                                             setHrBook(industry);
                                         }}
                                         variant="default"

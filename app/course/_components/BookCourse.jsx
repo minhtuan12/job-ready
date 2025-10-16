@@ -25,8 +25,8 @@ const BookCourse = (
     }) => {
     const user = useUser();
     const [data, setData] = React.useState({
-        fullName: user.fullName,
-        email: user.email,
+        fullName: user?.fullName,
+        email: user?.email,
         question: ''
     })
     const [loading, setLoading] = useState(false);

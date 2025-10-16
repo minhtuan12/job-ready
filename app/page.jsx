@@ -166,9 +166,7 @@ export default function Home() {
                         </Link>
                         {/* Menu điều hướng chính */}
                         <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
-                            <Link href="/how-it-works" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Cách hoạt động</Link>
                             <Link href="/pricing" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Bảng giá</Link>
-                            <Link href="/affiliate" className="font-semibold text-[#4B6358] hover:text-[#22372B] transition-colors">Affiliate</Link>
                         </nav>
                         {/* Nút CTA (Call-to-Action) chính */}
                         <Link href="/dashboard">
@@ -250,6 +248,54 @@ export default function Home() {
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="relative mb-[100px] max-lg:!h-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center" style={{ height: '668px', minHeight: '668px' }}>
+                <div className="text-center mb-12">
+                    <h2 className="text-[30px] md:text-[40px] font-bold text-[#22372B] mb-3 md:mb-6 md:px-48 box-border" style={{ letterSpacing: '-1.5px' }}>JobReady là gì?</h2>
+                </div>
+                {/* Scrollable feature card gallery */}
+                <div className="grid lg:grid-cols-2 grid-cols-1 gap-20 w-full">
+                    <div className="relative">
+                        <img src="/Vector 5.png" className="absolute -bottom-5 -left-10" />
+                        <img src="/bag.png" className="absolute bottom-0 left-0" />
+                    </div>
+                    <div className="flex flex-col gap-6">
+                        <div className="text-[#2F3C30] text-[18px] px-4">
+                            <p>Mô phỏng phỏng vấn như thật, giúp bạn làm quen với nhiều tình huống và nâng cao khả năng ứng biến trong các buổi phỏng vấn thực tế</p><br />
+                            <p>Mô phỏng phỏng vấn như thật, giúp bạn làm quen với nhiều tình huống và nâng cao khả năng ứng biến trong các buổi phỏng vấn thực tế</p><br />
+                            <p>Mô phỏng phỏng vấn như thật, giúp bạn làm quen với nhiều tình huống và nâng cao khả năng ứng biến trong các buổi phỏng vấn thực tế</p><br />
+                        </div>
+                        <Link href="/dashboard">
+                            <button
+                                className="relative flex items-center h-[56px] pr-5 pl-7 rounded-full font-semibold text-white text-base shadow-md transition-transform duration-150 ease-in-out hover:scale-105 active:scale-95"
+                                style={{
+                                    background: 'linear-gradient(90deg, #F97C7C 0%, #D72660 100%)',
+                                    border: 'none',
+                                    outline: 'none',
+                                    boxShadow: '0 2px 8px 0 rgba(215,38,96,0.10)',
+                                    borderRadius: '999px',
+                                }}
+                            >
+                                Khám phá ngay
+                                <span
+                                    className="ml-4 flex items-center justify-center rounded-full shadow-md"
+                                    style={{
+                                        width: '44px',
+                                        height: '44px',
+                                        background: 'linear-gradient(135deg, #F97C7C 0%, #D72660 100%)',
+                                        border: '4px solid #F7F5E8',
+                                        position: 'relative',
+                                        right: '-8px',
+                                        boxShadow: '0 2px 8px 0 rgba(215,38,96,0.10)',
+                                    }}
+                                >
+                                    <ArrowRight className="w-5 h-5" />
+                                </span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -343,14 +389,15 @@ export default function Home() {
                     </div>
                     {/* Character image at bottom right */}
                     <Image
-                        src="/landing_page_section_try_2.png"
+                        src="/zzz.png"
                         alt="Woman character"
-                        width={616}
+                        width={700}
                         height={778}
                         quality={100}
                         unoptimized={true}
                         priority
-                        className="hidden xl:block absolute right-28 bottom-0 z-15 w-[308px] h-auto"
+                        style={{ zIndex: 25 }}
+                        className="hidden xl:block absolute right-40 bottom-0 z-25 w-[308px] h-auto"
                     />
                 </div>
             </div>
@@ -471,14 +518,14 @@ export default function Home() {
                     {/* Right Section: Chat UI + Character Image */}
                     <div className="relative h-[320px] max-lg:!h-auto max-lg:!-mt-6 sm:h-[420px] md:h-[520px] lg:h-[744px] w-full lg:w-[52vw] min-w-[180px] flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
                         <Image
-                            src="/landing_page_section_start_1.png"
+                            src="/Frame 165.png"
                             alt="Chat UI and Character"
-                            width={600}
-                            height={400}
+                            width={800}
+                            height={600}
                             quality={100}
                             unoptimized={true}
                             priority
-                            className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[81%] h-auto object-contain -translate-y-2 sm:-translate-y-4 md:-translate-y-6 lg:-translate-y-[4%] lg:-translate-x-[0%]"
+                            className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[100%] h-auto object-contain -translate-y-2 sm:-translate-y-4 md:-translate-y-6 lg:translate-y-[2%] lg:-translate-x-[0%]"
                         />
                     </div>
                 </div>
@@ -502,9 +549,7 @@ export default function Home() {
                         <div className="min-w-[150px]">
                             <div className="font-bold text-[#22372B] mb-3">Sản phẩm</div>
                             <ul className="space-y-2">
-                                <li><a href="#how-it-works" className="text-[#4B6358] hover:underline">Cách hoạt động</a></li>
-                                <li><a href="#pricing" className="text-[#4B6358] hover:underline">Bảng giá</a></li>
-                                <li><a href="#affiliate" className="text-[#4B6358] hover:underline">Affiliate</a></li>
+                                <li><a href="/pricing" className="text-[#4B6358] hover:underline">Bảng giá</a></li>
                             </ul>
                         </div>
                         {/* About Links */}

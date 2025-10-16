@@ -2,7 +2,7 @@ import { jwtVerify } from "jose";
 import { NextResponse } from "next/server";
 
 function isProtectedRoute(path) {
-    return path.startsWith("/dashboard") || path.startsWith("/forum");
+    return path.startsWith("/dashboard") || path.startsWith("/forum") || path.startsWith("/profile");
 }
 
 function isAuthPage(path) {

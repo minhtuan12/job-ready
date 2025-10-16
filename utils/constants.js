@@ -41,6 +41,20 @@ export const courses = [
         category: "Marketing",
         link: '',
     },
+    {
+        thumbnail: "/c1.png",
+        name: "Frontend Chuyên sâu",
+        description: "Khóa học “Frontend Chuyên sâu” của DevFeEdu được thiết kế cho sinh viên hoặc người mới ra trường chuyên ngành Công nghệ thông tin, mong muốn trau dồi thêm kỹ năng thực chiến về lập trình giao diện web hiện đại",
+        category: "IT",
+        link: 'https://www.devfe-edu.online',
+    },
+    {
+        thumbnail: "/c2.png",
+        name: "Lập trình ReactJS chuyên sâu với React Hooks and Bootstrap",
+        description: "Khóa học “Lập trình ReactJS chuyên sâu với React Hooks and Bootstrap” được thiết kế dành cho những người đã có kiến thức cơ bản về HTML, CSS và JavaScript, muốn nâng cấp kỹ năng lập trình Frontend hiện đại.",
+        category: "IT",
+        link: 'https://www.udemy.com/course/khoa-hoc-reactjs-chuyen-sau-voi-bootstrap-material-ui?utm_source=chatgpt.com',
+    },
 ]
 
 export const softSkills = [
@@ -81,169 +95,114 @@ export const filters = [
 export const jobs = [
     {
         id: 1,
-        experience: 'Không yêu cầu',
+        experience: '1-2 năm',
         thumbnail: "/viettel.png",
-        name: "Thực tập sinh Marketing",
+        name: "Nhân viên Content Marketing",
         address: "Hà Nội",
-        salary: "Lên đến 3 triệu",
+        salary: "Thỏa thuận",
         category: "Marketing",
-        company: "Viettel Software",
+        company: "LASON",
         descriptions: [
-            "Quản trị hệ thống kênh Youtube của công ty.",
-            "Tạo kênh, đăng tải video lên hệ thống kênh quản lý theo kế hoạch.",
-            "Chỉnh sửa video: Cắt, ghép, biên tập video, tạo ảnh thumbnail cho video.",
-            "Chăm sóc kênh: Comment tương tác với người xem, các nghiệp vụ promote cho video/kênh.",
-            "Phân tích các chỉ số quan trọng trong quản trị kênh: Analytics…"
+            "Quản lý các kênh social của Lason: Facebook, Instagram, Tiktok, Threads, Website",
+            "Quản lý, đảm bảo số lượng, chất lượng của bài viết trên các nền tảng gồm: nội dung, hình ảnh, video theo quy chuẩn và yêu cầu",
+            "Xây dựng và triển khai kế hoạch truyền thông liên quan đến việc sản xuất content và media cho các sản phẩm của công ty theo tuần, theo tháng, theo thời vụ",
+            "Sử dụng công cụ AI (ChatGPT, Canva, CapCut, Midjourney, v.v.) để hỗ trợ sáng tạo nội dung, tăng tốc độ sản xuất và tối ưu hiệu suất công việc",
+            "Phối hợp cùng phòng sale để khai thác các insight của khách hàng, triển khai các content story-telling hướng tới các vấn đề của khách",
+            "Phối hợp cùng nhân sự/tổ chức sản xuất hình ảnh/video bên ngoài để có output phù hợp nhất với định hướng.",
+            "Nắm bắt xu hướng thị trường, sáng tạo định dạng nội dung mới mẻ nhưng vẫn bám sát mục tiêu thương hiệu.",
+            "Đề xuất các chiến dịch viral, content series, nhân vật hóa thương hiệu"
         ],
         requirements: [
-            "Nam/nữ đã hoàn thành xong chương trình học đại học (chấp nhận chờ bằng).",
-            "KHÔNG YÊU CẦU KINH NGHIỆM CHUYÊN MÔN",
-            "Có thể sử dụng cơ bản Premiere, Photoshop là 1 lợi thế",
-            "Tư duy sáng tạo, đưa ra các đề xuất phát triển kênh",
-            "Có khả năng bắt trend"
+            "Có kinh nghiệm 1-2 năm trong công việc",
+            "Biết chụp, quay và dựng video đơn giản, nhanh",
+            "Có tư duy thiết kế, thẩm mỹ tốt",
+            "Có tư duy hệ thống, lập kế hoạch, biết cách kể chuyện tốt tốt",
+            "Biết sử dụng các công cụ quản lý nội dung, ưu tiên các ứng viên hiểu biết và sử dụng AI trong công việc"
         ],
         benefits: [
-            "CÓ CẤP DẤU MỘC THỰC TẬP CHO SINH VIÊN NĂM CUỐI",
-            "Học việc 1 tháng: phụ cấp 1tr5/tháng + phụ cấp ăn trưa 30.000đ/ngày (tối đa 1 tháng, làm tốt xem xét từ 2 tuần)",
-            "Thử việc (1-2 tháng): hưởng 85% lương cứng 7.000.000đ + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
+            "Thu nhập cạnh tranh: Mức lương cơ bản từ 9 – 12 triệu đồng/tháng và thưởng theo hiệu quả công việc",
+            "Chính sách làm việc linh hoạt: Hỗ trợ thời gian làm việc linh hoạt, cho phép cộng dồn 120 phút đi làm muộn mỗi tháng, giúp chủ động hơn trong việc sắp xếp lịch trình cá nhân",
+            "Môi trường làm việc trẻ trung, năng động, chuyên nghiệp, sáng tạo",
             "Chính thức: 7.000.000đ lương cứng + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "THƯỞNG kênh từ kênh youtube của công ty (3–4tr/tháng) => Tổng thu nhập 10.000.000–15.000.000đ"
+            "Phúc lợi đầy đủ và minh bạch:",
+            "Đóng bảo hiểm xã hội đầy đủ theo quy định của pháp luật.",
+            "Thưởng lương tháng 13, cùng các khoản thưởng lễ, Tết, sinh nhật, đánh giá định kỳ",
+            "Du lịch, teambuilding tối thiểu 2 lần/năm và nhiều hoạt động tạo cơ hội gắn kết và làm mới tinh thần làm việc"
         ],
-        workingAddress: ["Hà Nội: Số 157 Cầu Diễn, Phú Diễn, Bắc Từ Liêm"],
-        workingTime: ["Thứ 2 – Thứ 6 (từ 08:15 đến 17:30)"]
+        workingAddress: ["Thịnh Hào 1 - Đống Đa - Hà Nội"],
+        workingTime: ["Full-time, 8h30-18h hàng ngày, nghỉ trưa 12h-13h30, từ thứ 2 đến thứ 7 hàng tuần"]
     },
     {
         id: 2,
-        experience: 'Không yêu cầu',
+        experience: '2 năm kinh nghiệm',
         thumbnail: "/mbbank.png",
-        name: "IOS Developer Intern",
+        name: "Nhân viên kế toán tổng hợp",
         address: "Hà Nội",
-        salary: "Lên đến 5 triệu",
-        category: "IT",
-        company: "MB Bank",
+        salary: "15-20 triệu",
+        category: "Kế toán",
+        company: "Media-one",
         descriptions: [
-            "Quản trị hệ thống kênh Youtube của công ty.",
-            "Tạo kênh, đăng tải video lên hệ thống kênh quản lý theo kế hoạch.",
-            "Chỉnh sửa video: Cắt, ghép, biên tập video, tạo ảnh thumbnail cho video.",
-            "Chăm sóc kênh: Comment tương tác với người xem, các nghiệp vụ promote cho video/kênh.",
-            "Phân tích các chỉ số quan trọng trong quản trị kênh: Analytics…"
+            "Hướng dẫn và kiểm soát công việc của nhân viên nhập liệu, thực tập sinh.",
+            "Lập tờ khai thuế hàng tháng/quý/năm, báo cáo tài chính.",
+            "Kiểm soát chất lượng báo cáo thuế, BCTC và sổ sách kế toán của khách hàng.",
+            "Tư vấn, hỗ trợ khách hàng trong quá trình thực hiện dịch vụ.",
+            "Thực hiện các công việc khác theo phân công của Ban Giám đốc",
         ],
         requirements: [
-            "Nam/nữ đã hoàn thành xong chương trình học đại học (chấp nhận chờ bằng).",
-            "KHÔNG YÊU CẦU KINH NGHIỆM CHUYÊN MÔN",
-            "Có thể sử dụng cơ bản Premiere, Photoshop là 1 lợi thế",
-            "Tư duy sáng tạo, đưa ra các đề xuất phát triển kênh",
-            "Có khả năng bắt trend"
+            "Tốt nghiệp chuyên ngành Kế toán, Kiểm toán hoặc liên quan.",
+            "Thành thạo phần mềm kế toán MISA, Fast... và tin học văn phòng.",
+            "Có tối thiểu 2 năm kinh nghiệm làm kế toán tổng hợp/thuế.",
+            "Có ngoại ngữ (Anh/Trung) là một lợi thế.",
+            "Tính cách: cẩn thận, chăm chỉ, chịu được áp lực công việc.",
         ],
         benefits: [
-            "CÓ CẤP DẤU MỘC THỰC TẬP CHO SINH VIÊN NĂM CUỐI",
-            "Học việc 1 tháng: phụ cấp 1tr5/tháng + phụ cấp ăn trưa 30.000đ/ngày (tối đa 1 tháng, làm tốt xem xét từ 2 tuần)",
-            "Thử việc (1-2 tháng): hưởng 85% lương cứng 7.000.000đ + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "Chính thức: 7.000.000đ lương cứng + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "THƯỞNG kênh từ kênh youtube của công ty (3–4tr/tháng) => Tổng thu nhập 10.000.000–15.000.000đ"
+            "Thu nhập hấp dẫn theo năng lực ( Từ 15 đến 20 triệu)",
+            "Được đào tạo chuyên sâu về nghiệp vụ kế toán, thuế và kỹ năng mềm.",
+            "Tham gia các khóa cập nhật kiến thức của hiệp hội kế toán, tư vấn thuế.",
+            "Cơ hội phát triển nghề nghiệp bền vững trong môi trường chuyên nghiệp.",
+            "Hưởng chế độ nghỉ phép, nghỉ lễ theo quy định Nhà nước.",
+            "Tham gia các hoạt động nội bộ sôi nổi: teambuilding, du lịch, ăn uống, sinh nhật...",
+
         ],
-        workingAddress: ["Hà Nội: Số 157 Cầu Diễn, Phú Diễn, Bắc Từ Liêm"],
-        workingTime: ["Thứ 2 – Thứ 6 (từ 08:15 đến 17:30)"]
+        workingAddress: ["Xuân Đỉnh, Bắc Từ Liêm, Hà Nội"],
+        workingTime: ["Full-time, 8h-17h hàng ngày, nghỉ trưa 12h-13h, từ thứ 2 đến thứ 7 hàng tuần"]
     },
     {
         id: 3,
         experience: 'Không yêu cầu',
         thumbnail: "/shopee.png",
-        name: "Thực tập sinh Sale",
+        name: "Nhân viên phát triển web",
         address: "Hà Nội",
-        salary: "Lên đến 3 triệu",
-        category: "Kế toán",
-        company: "Shopee",
+        salary: "10 triệu",
+        category: "IT",
+        company: "Ninalink Group",
         descriptions: [
-            "Quản trị hệ thống kênh Youtube của công ty.",
-            "Tạo kênh, đăng tải video lên hệ thống kênh quản lý theo kế hoạch.",
-            "Chỉnh sửa video: Cắt, ghép, biên tập video, tạo ảnh thumbnail cho video.",
-            "Chăm sóc kênh: Comment tương tác với người xem, các nghiệp vụ promote cho video/kênh.",
-            "Phân tích các chỉ số quan trọng trong quản trị kênh: Analytics…"
+            "Tham gia trực tiếp các sản phẩm công ty đang phát triển và các phần mềm hỗ trợ quản lý nội bộ trong công ty.",
+            "Tham gia phát triển dự án công ty do team phát triển từ đầu.",
+            "Kết hợp với các thành viên trong team cùng phát triển bản thân.",
+            "Chịu trách nhiệm phát triển các chức năng và đảm bảo chất lượng sản phẩm.",
+            "Tìm hiểu và nghiên cứu các công nghệ mới.",
         ],
         requirements: [
-            "Nam/nữ đã hoàn thành xong chương trình học đại học (chấp nhận chờ bằng).",
-            "KHÔNG YÊU CẦU KINH NGHIỆM CHUYÊN MÔN",
-            "Có thể sử dụng cơ bản Premiere, Photoshop là 1 lợi thế",
-            "Tư duy sáng tạo, đưa ra các đề xuất phát triển kênh",
-            "Có khả năng bắt trend"
+            "Gắn link source code thực tế đã làm trước đó",
+            "Ham học hỏi, có thể tự làm việc độc lập",
+            "Ưu tiên có kiến thức với Javascript / VueJs / ReactJs",
+            "Ưu tiên có kinh nghiệm với Reactjs/ Nextjs",
+            "Ưu tiên có kinh nghiệm làm việc với RestFul Api",
+            "Đã làm việc với chatbot hoặc AI là 1 lợi thế",
+            "Có định hướng trở thành full-stack developer",
         ],
         benefits: [
-            "CÓ CẤP DẤU MỘC THỰC TẬP CHO SINH VIÊN NĂM CUỐI",
-            "Học việc 1 tháng: phụ cấp 1tr5/tháng + phụ cấp ăn trưa 30.000đ/ngày (tối đa 1 tháng, làm tốt xem xét từ 2 tuần)",
-            "Thử việc (1-2 tháng): hưởng 85% lương cứng 7.000.000đ + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "Chính thức: 7.000.000đ lương cứng + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "THƯỞNG kênh từ kênh youtube của công ty (3–4tr/tháng) => Tổng thu nhập 10.000.000–15.000.000đ"
+            "Vị trí Intern với mức lương hỗ trợ 10.000.000đ",
+            "Cung cấp thiết bị cho công việc: Macbook Pro, màn hình Dell 2k 24-27",
+            "Các chế độ BHXH, BHYT đầy đủ theo quy định của luật lao động.",
+            "Lương thưởng theo năng lực của mỗi cá nhân, tháng lương thứ 13.",
+            "Phụ cấp ăn trưa và phí gửi xe.",
+            "Được hưởng nhiều chế độ đãi ngộ khác theo chính sách của Công ty.",
         ],
-        workingAddress: ["Hà Nội: Số 157 Cầu Diễn, Phú Diễn, Bắc Từ Liêm"],
-        workingTime: ["Thứ 2 – Thứ 6 (từ 08:15 đến 17:30)"]
+        workingAddress: ["Lô C16/D21 KĐT mới Cầu Giấy, phố Dịch Vọng Hậu, phường Cầu Giấy, Thành phố Hà Nội"],
+        workingTime: ["Full-time, 8h-17h hàng ngày, nghỉ trưa 12h-13h, từ thứ 2 đến thứ 7 hàng tuần"]
     },
-    {
-        id: 4,
-        experience: 'Không yêu cầu',
-        thumbnail: "/fpt.png",
-        name: "Thực tập sinh Marketing",
-        address: "Hà Nội",
-        salary: "Lên đến 3 triệu",
-        category: "Marketing",
-        company: "FPT Software",
-        descriptions: [
-            "Quản trị hệ thống kênh Youtube của công ty.",
-            "Tạo kênh, đăng tải video lên hệ thống kênh quản lý theo kế hoạch.",
-            "Chỉnh sửa video: Cắt, ghép, biên tập video, tạo ảnh thumbnail cho video.",
-            "Chăm sóc kênh: Comment tương tác với người xem, các nghiệp vụ promote cho video/kênh.",
-            "Phân tích các chỉ số quan trọng trong quản trị kênh: Analytics…"
-        ],
-        requirements: [
-            "Nam/nữ đã hoàn thành xong chương trình học đại học (chấp nhận chờ bằng).",
-            "KHÔNG YÊU CẦU KINH NGHIỆM CHUYÊN MÔN",
-            "Có thể sử dụng cơ bản Premiere, Photoshop là 1 lợi thế",
-            "Tư duy sáng tạo, đưa ra các đề xuất phát triển kênh",
-            "Có khả năng bắt trend"
-        ],
-        benefits: [
-            "CÓ CẤP DẤU MỘC THỰC TẬP CHO SINH VIÊN NĂM CUỐI",
-            "Học việc 1 tháng: phụ cấp 1tr5/tháng + phụ cấp ăn trưa 30.000đ/ngày (tối đa 1 tháng, làm tốt xem xét từ 2 tuần)",
-            "Thử việc (1-2 tháng): hưởng 85% lương cứng 7.000.000đ + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "Chính thức: 7.000.000đ lương cứng + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "THƯỞNG kênh từ kênh youtube của công ty (3–4tr/tháng) => Tổng thu nhập 10.000.000–15.000.000đ"
-        ],
-        workingAddress: ["Hà Nội: Số 157 Cầu Diễn, Phú Diễn, Bắc Từ Liêm"],
-        workingTime: ["Thứ 2 – Thứ 6 (từ 08:15 đến 17:30)"]
-    },
-    {
-        id: 5,
-        experience: 'Không yêu cầu',
-        thumbnail: "/cmc.png",
-        name: "Thực tập sinh Marketing",
-        address: "Hà Nội",
-        salary: "Lên đến 3 triệu",
-        category: "Marketing",
-        company: "CMC Global",
-        descriptions: [
-            "Quản trị hệ thống kênh Youtube của công ty.",
-            "Tạo kênh, đăng tải video lên hệ thống kênh quản lý theo kế hoạch.",
-            "Chỉnh sửa video: Cắt, ghép, biên tập video, tạo ảnh thumbnail cho video.",
-            "Chăm sóc kênh: Comment tương tác với người xem, các nghiệp vụ promote cho video/kênh.",
-            "Phân tích các chỉ số quan trọng trong quản trị kênh: Analytics…"
-        ],
-        requirements: [
-            "Nam/nữ đã hoàn thành xong chương trình học đại học (chấp nhận chờ bằng).",
-            "KHÔNG YÊU CẦU KINH NGHIỆM CHUYÊN MÔN",
-            "Có thể sử dụng cơ bản Premiere, Photoshop là 1 lợi thế",
-            "Tư duy sáng tạo, đưa ra các đề xuất phát triển kênh",
-            "Có khả năng bắt trend"
-        ],
-        benefits: [
-            "CÓ CẤP DẤU MỘC THỰC TẬP CHO SINH VIÊN NĂM CUỐI",
-            "Học việc 1 tháng: phụ cấp 1tr5/tháng + phụ cấp ăn trưa 30.000đ/ngày (tối đa 1 tháng, làm tốt xem xét từ 2 tuần)",
-            "Thử việc (1-2 tháng): hưởng 85% lương cứng 7.000.000đ + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "Chính thức: 7.000.000đ lương cứng + trợ cấp ăn trưa 30.000đ/ngày + trợ cấp xăng xe 200.000đ/tháng",
-            "THƯỞNG kênh từ kênh youtube của công ty (3–4tr/tháng) => Tổng thu nhập 10.000.000–15.000.000đ"
-        ],
-        workingAddress: ["Hà Nội: Số 157 Cầu Diễn, Phú Diễn, Bắc Từ Liêm"],
-        workingTime: ["Thứ 2 – Thứ 6 (từ 08:15 đến 17:30)"]
-    }
 ]
 
 export const plans = [

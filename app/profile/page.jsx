@@ -131,7 +131,7 @@ export default function () {
     {
       key: '4',
       label: 'CV đã đăng tải',
-      children: <CV cvUrls={user.cvUrls || []} />,
+      children: <CV cvUrls={user?.cvUrls || []} />,
     },
   ], [bookings, setShowDesignModal, user]);
 
@@ -212,7 +212,7 @@ export default function () {
             </div>
             <div className="flex flex-col flex-1 gap-3">
               <h1 className="text-2xl font-semibold text-[#2f3c30]">
-                {user.fullName}
+                {user?.fullName}
               </h1>
               <p className="text-sm text-[#607361]">HSD: 27/09/2025</p>
             </div>

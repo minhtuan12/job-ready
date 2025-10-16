@@ -81,7 +81,7 @@ export default function PaymentPage({ searchParams }) {
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Thông tin đơn hàng</h2>
           <div className="bg-[#fff8f0] rounded-lg p-4 mb-4 shadow-inner">
             <div className="flex items-center gap-3 mb-2">
-              <strong>Job Ready</strong> - <span>{plans.find(i => i.id === info.id)?.name || ''}</span>
+              <strong>JobReady</strong> - <span>{plans.find(i => i.id === info.id)?.name || ''}</span>
             </div>
             <div className="flex items-center gap-2 mb-4">
               <input

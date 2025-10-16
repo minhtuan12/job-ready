@@ -100,14 +100,14 @@ function Header() {
                         </Link>
 
                         {/* Menu chính ở giữa */}
-                        <nav className="flex-1 flex items-center justify-center max-[1550px]:hidden">
+                        <nav className="flex-1 flex items-center justify-center max-[1330px]:hidden">
                             <ul className="flex gap-8">
                                 <li>
                                     <a
                                         href="/dashboard"
                                         className={`font-semibold text-[#3d463b] px-2 py-1 ${isDashboard ? 'border-b-2 border-[#3d463b] font-semibold' : ''} hover:text-lime-700`}
                                     >
-                                        Dashboard
+                                        Trang chủ
                                     </a>
                                 </li>
                                 <li>
@@ -140,22 +140,6 @@ function Header() {
                                         className="font-semibold text-[#3d463b] px-2 py-1 hover:underline hover:text-lime-700"
                                     >
                                         Về chúng tôi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="font-semibold text-[#3d463b] px-2 py-1 hover:underline hover:text-lime-700"
-                                    >
-                                        Affiliate
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="font-semibold text-[#3d463b]  px-2 py-1 hover:underline hover:text-lime-700"
-                                    >
-                                        Cách hoạt động
                                     </a>
                                 </li>
                             </ul>
@@ -214,7 +198,7 @@ function Header() {
                                 ""
                             )}
                             <Menu
-                                className="cursor-pointer ml-1 text-[50px] min-[1550px]:hidden"
+                                className="cursor-pointer ml-1 text-[50px] min-[1330px]:hidden"
                                 color="black"
                                 onClick={() =>
                                     setShowMenuDrawer(!showMenuDrawer)
@@ -238,7 +222,7 @@ function Header() {
                                             href="/dashboard"
                                             className="font-semibold text-[#3d463b] font-semibold px-2 py-1 border-b-2 border-[#3d463b] hover:text-lime-700"
                                         >
-                                            Dashboard
+                                            Trang chủ
                                         </a>
                                     </li>
                                     <li>
@@ -271,22 +255,6 @@ function Header() {
                                             className="font-semibold text-[#3d463b] px-2 py-1 hover:underline hover:text-lime-700"
                                         >
                                             Về chúng tôi
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="font-semibold text-[#3d463b] px-2 py-1 hover:underline hover:text-lime-700"
-                                        >
-                                            Affiliate
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="font-semibold text-[#3d463b] px-2 py-1 hover:underline hover:text-lime-700"
-                                        >
-                                            Cách hoạt động
                                         </a>
                                     </li>
                                 </ul>

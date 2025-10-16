@@ -60,9 +60,7 @@ export default function Home() {
             </Link>
             {/* Menu */}
             <nav className="hidden md:flex max-lg:gap-7 gap-16 text-lg">
-              <Link href="#how-it-works" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Cách hoạt động</Link>
               <Link href="/pricing" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Bảng giá</Link>
-              <Link href="#affiliate" className="text-[#4B6358] hover:text-[#22372B] transition-colors font-semibold">Affiliate</Link>
             </nav>
             {/* CTA Button */}
             <Link href="/dashboard">
@@ -231,9 +229,7 @@ export default function Home() {
             <div className="min-w-[150px]">
               <div className="font-bold text-[#22372B] mb-3">Sản phẩm</div>
               <ul className="space-y-2">
-                <li><a href="#how-it-works" className="text-[#4B6358] hover:underline">Cách hoạt động</a></li>
-                <li><a href="#pricing" className="text-[#4B6358] hover:underline">Bảng giá</a></li>
-                <li><a href="#affiliate" className="text-[#4B6358] hover:underline">Affiliate</a></li>
+                <li><a href="/pricing" className="text-[#4B6358] hover:underline">Bảng giá</a></li>
               </ul>
             </div>
             {/* About Links */}

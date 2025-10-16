@@ -12,8 +12,8 @@ import React, { useState } from "react"
 export default function Application({ selectedJob, onClose }) {
     const user = useUser()
     const [data, setData] = useState({
-        fullName: user.fullName,
-        email: user.email,
+        fullName: user?.fullName,
+        email: user?.email,
         cv: '',
         letter: ''
     })

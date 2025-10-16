@@ -1224,7 +1224,7 @@ function ResultFeedbackContent() {
                             className="-mt-1"
                         />
                         <span className="max-sm:hidden block">
-                            Về dashboard
+                            Về Trang chủ
                         </span>
                     </Button>
                     <div className="flex items-center gap-4">

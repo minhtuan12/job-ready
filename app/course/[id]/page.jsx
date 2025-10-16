@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Congrats from "@/components/congrats";
+import { useUser } from "@/app/context/UserContext";
 
 export default function ({ params }) {
     const router = useRouter();
@@ -22,6 +23,7 @@ export default function ({ params }) {
     })
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    const user = useUser();
 
     function handleRegisterCourse() {
         setLoading(true);
@@ -130,7 +132,13 @@ export default function ({ params }) {
                                 </p>
                             </div>
                         </div>
-                        <button onClick={() => setOpenModal(true)} className="w-full h-11 bg-[#B5ED76] rounded-full text-[#2f3c30] font-semibold mt-3">
+                        <button onClick={() => {
+                            if (!user) {
+                                window.location.href = '/sign-in';
+                                return;
+                            }
+                            setOpenModal(true)
+                        }} className="w-full h-11 bg-[#B5ED76] rounded-full text-[#2f3c30] font-semibold mt-3">
                             Đăng ký
                         </button>
                     </aside>

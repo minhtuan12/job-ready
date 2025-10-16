@@ -14,6 +14,7 @@ import Specialized from "./_components/Specialized";
 import { filters, jobs } from "@/utils/constants";
 import Application from "./_components/Application";
 import Link from 'next/link'
+import { useUser } from "../context/UserContext";
 
 export default function () {
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
@@ -24,6 +25,7 @@ export default function () {
     const [salary, setSalary] = useState(undefined);
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [isApplying, setIsApplying] = useState(false);
+    const user = useUser();
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -43,12 +45,14 @@ export default function () {
             result = result.filter(item => item.category === category);
         }
         if (address) {
-            result = result.filter(item.address === address);
+            result = result.filter(item => item.address === address);
         }
         if (salary) {
-            result = result.filter(item.salary === salary);
+            result = result.filter(item => item.salary === salary);
         }
-        setFilteredJobs(result);
+        if (JSON.stringify(result) !== JSON.stringify(filteredJobs)) {
+            setFilteredJobs(result);
+        }
     }, [category, address, salary, filteredJobs]);
 
     useEffect(() => {
@@ -234,7 +238,13 @@ export default function () {
                                     </div>
                                 </div>
                                 <div className="flex gap-2 h-11 mt-5">
-                                    <button onClick={() => setIsApplying(true)} className={`rounded-full w-full h-full ${appliedJobs.some(i => i.jobId === selectedJob.id) ? 'bg-[#CDF7A2]' : 'bg-[#B5ED76]'} text-black hover:bg-[#B5ED76] flex items-center gap-3 justify-center`}>
+                                    <button onClick={() => {
+                                        if (!user) {
+                                            window.location.href = '/sign-in';
+                                            return;
+                                        }
+                                        setIsApplying(true)
+                                    }} className={`rounded-full w-full h-full ${appliedJobs.some(i => i.jobId === selectedJob.id) ? 'bg-[#CDF7A2]' : 'bg-[#B5ED76]'} text-black hover:bg-[#B5ED76] flex items-center gap-3 justify-center`}>
                                         {appliedJobs.some(i => i.jobId === selectedJob.id) ? <RefreshCw className="w-5 h-5" /> : ''}
                                         Ứng tuyển {appliedJobs.some(i => i.jobId === selectedJob.id) ? 'lại' : 'ngay'}
                                     </button>

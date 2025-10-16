@@ -671,7 +671,7 @@ Your task:
                                     </div>
                                 </div>
                             </motion.div>
-                        ) : <img src="thắc mắc.png" className="w-[720px] h-[816px]" />}
+                        ) : <img src="ques.png" className="w-[500px] h-[565px] max-xl:hidden absolute right-0 bottom-[-58px]" />}
                     </AnimatePresence>
                 </div>
                 {/* Overlay Control Bar: fixed at bottom center, overlays ConversationBox */}

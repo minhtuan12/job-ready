@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { X, } from "lucide-react";
 import Image from "next/image";
 import BookModal from "@/app/hr/_components/BookModal";
+import { useUser } from "@/app/context/UserContext";
 
 const DetailModal = ({
     hrEmail,
@@ -17,6 +18,7 @@ const DetailModal = ({
     logo,
 }) => {
     const [openBook, setOpenBook] = React.useState(false);
+    const user = useUser();
 
     return (
         <AnimatePresence>
@@ -152,7 +154,13 @@ const DetailModal = ({
                                             trên hành trình sự nghiệp.
                                         </div>
                                         <Button
-                                            onClick={() => setOpenBook(true)}
+                                            onClick={() => {
+                                                if (!user) {
+                                                    window.location.href = '/sign-in';
+                                                    return;
+                                                }
+                                                setOpenBook(true)
+                                            }}
                                             className="flex-1 h-12 rounded-full bg-[#B5ED76] hover:bg-[#16A34A] text-black text-base w-full shadow-none"
                                         >Đặt lịch</Button>
                                     </div>

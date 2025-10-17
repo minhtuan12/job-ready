@@ -45,6 +45,7 @@ import {
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import { filters, jobs, softSkills } from "@/utils/constants";
+import Link from "next/link";
 
 // Hàm lấy và hiển thị kết quả phản hồi phỏng vấn
 function ResultFeedbackContent() {
@@ -1116,7 +1117,7 @@ function ResultFeedbackContent() {
                         </div>
                         <div ref={carouselRef} className="w-auto overflow-x-auto flex gap-4 pb-3 scrollbar-hide snap-x snap-mandatory scroll-smooth">
                             {softSkills.filter(i => coursesProposal.includes(i.name)).map((item, index) => (
-                                <div key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
+                                <Link href={`/course/${item.id}`} key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
                                     <div className={'flex justify-between w-full'}>
                                         <div className={'flex flex-col gap-2'}>
                                             <div className={'flex items-center text-[#607362] gap-3'}>
@@ -1137,7 +1138,7 @@ function ResultFeedbackContent() {
                                         </div>
                                         <img src={'/c1.png'} className="h-full rounded-lg w-[173px]" />
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div> : <div className="bg-[#E5EFD9] rounded-[16px] p-4 w-full flex flex-col gap-4">
@@ -1149,7 +1150,7 @@ function ResultFeedbackContent() {
                         </div>
                         <div ref={carouselRef} className="w-auto overflow-x-auto flex gap-4 pb-3 scrollbar-hide snap-x snap-mandatory scroll-smooth">
                             {softSkills.map((item, index) => (
-                                <div key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
+                                <Link href={`/course/${item.id}`} key={index} className="carousel-item snap-start flex-shrink-0 min-w-full flex flex-col gap-5 h-auto bg-white flex items-start justify-between rounded-[24px] border border-[#F0EAE7] p-6 shadow-sm hover:shadow-md transition">
                                     <div className={'flex justify-between w-full'}>
                                         <div className={'flex flex-col gap-2'}>
                                             <div className={'flex items-center text-[#607362] gap-3'}>
@@ -1170,7 +1171,7 @@ function ResultFeedbackContent() {
                                         </div>
                                         <img src={'/c1.png'} className="h-full rounded-lg w-[173px]" />
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

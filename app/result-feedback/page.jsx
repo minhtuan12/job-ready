@@ -1258,7 +1258,7 @@ function ResultFeedbackContent() {
                 </div>
             </footer>
             {
-                overallScore >= 70 ? <JobProposal score={overallScore} /> : <JobProposal score={overallScore} failed />
+                overallScore >= 80 ? <JobProposal score={overallScore} /> : <JobProposal score={overallScore} failed />
             }
         </div>
     );
